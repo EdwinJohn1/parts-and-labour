@@ -1,0 +1,66 @@
+@import './../variables';
+@import './../animations';
+@import './../mixins';
+@import './../typography';
+
+.project-intro {
+    overflow: hidden;
+    margin: 0;
+    &__line {
+       display: block;
+       overflow: hidden;
+
+       font-size: 7.5vw;
+       line-height: 0.824em;
+       &__child {
+            & * {
+                line-height: 0!important;
+            }
+        }
+
+       &.hidden {
+            opacity: 0;
+        }
+       &.in-view {
+            animation: line-by-line-animation 1s cubic-bezier(0,0,0,1);
+            animation-fill-mode: backwards;
+        }
+
+       &__parent {
+            display: block;
+            overflow: hidden;
+
+            &.hidden {
+                opacity: 0;
+            }
+            &.in-view {
+                animation: line-by-line-animation-parent 1s cubic-bezier(1,0,0,1);
+            animation-fill-mode: backwards;
+        }
+       }
+
+        &__child {
+            display: block;
+            &.hidden {
+                opacity: 0;
+            }
+            &.in-view {
+                animation: line-by-line-animation-child 1s cubic-bezier(1,0,0,1);
+            animation-fill-mode: backwards;
+        }
+        }
+
+        @for $i from 1 through 3 {
+            &:nth-child(#{$i}) {
+                animation-delay: #{(($i - 1) * 0.2) + 's'};
+                .project-intro__line__parent {
+                    animation-delay: #{(($i - 1) * 0.2) + 's'};
+                }
+
+                .project-intro__line__child {
+                    animation-delay: #{(($i - 1) * 0.2) + 's'};
+                }
+            }
+        }
+   }
+}

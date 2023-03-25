@@ -1,0 +1,9 @@
+@import './variables/colors';
+@import './variables/breakpoints';
+
+$header-font-size: 1.55vw;
+$display-font-size: calc((100vw - 32px) * 0.04725);
+$display-font-small-size: calc((100vw - 32px) * 0.0395);
+$header-height: 2.98375vw;
+$page-spacing: calc(3.875vw + 2px) 16px 0;
+$portfolio-paragraph: calc((100vw - 16px) * 0.016);

@@ -1,0 +1,339 @@
+@import './mixins/images';
+@import './mixins/responsive';
+
+@mixin padding {
+  font-size: $display-font-size;
+}
+
+@mixin spacing($width:2px, $color:black) {
+  @include padding;
+  position: relative;
+  width: 100%;
+  padding: 0.5em 0;
+
+  &--large {
+    padding: 0.5em 0;
+  }
+
+  &--medium {
+    padding: 0.25em 0;
+  }
+
+  &--small {
+    padding: 0.225em 0;
+  }
+
+  &--small-alt {
+    padding: 0.0125em 0;
+  }
+
+  &--tiny {
+    padding: 0.075em 0;
+  }
+
+  &-top {
+    &--large {
+      padding-top: 0.5em;
+    }
+    &--medium {
+      padding-top: 0.25em;
+    }
+    &--small {
+      padding-top: 0.225em;
+    }
+    &--small-alt {
+      padding-top: 0.125em;
+    }
+    &--tiny {
+      padding-top: 0.075em;
+    }
+  }
+
+  &-bottom {
+    &--large {
+      padding-bottom: 0.5em;
+    }
+    &--medium {
+      padding-bottom: 0.25em;
+    }
+    &--small {
+      padding-bottom: 0.225em;
+    }
+    &--small-alt {
+      padding-bottom: 0.125em;
+    }
+    &--tiny {
+      padding-bottom: 0.075em;
+    }
+  }
+
+  &.line {
+    &:before {
+      content: '';
+      width: 100%;
+      height: $width;
+      display: block;
+      background: $color;
+    }
+
+    &.thick {
+      &:before {
+        height: 3px;
+      }
+    }
+
+    &.thin {
+      &:before {
+        height: 1px;
+      }
+    }
+
+    &.dark {
+      &:before {
+        background: white;
+      }
+    }
+  }
+
+  &.no-bottom {
+    padding-bottom: 0;
+  }
+
+  &.no-top {
+    padding-top: 0;
+  }
+
+  &.width {
+    &--fullscreen {
+      width: calc(100vw);
+      margin-left: -16px;
+    }
+  }
+}
+
+@mixin backgroundColors () {
+  &.black {
+    background: $black;
+  }
+  &.trueblack {
+    background: #000;
+  }
+  &.lavender {
+    background: $lavender;
+  }
+  &.gold {
+    background: $gold;
+  }
+  &.mint {
+    background: $mint;
+  }
+  &.periwinkle {
+    background: $periwinkle;
+  }
+  &.white,
+  &.eggshell {
+    background: $eggshell;
+  }
+  &.sand {
+    background: $sand;
+  }
+  &.charcoal {
+    background: $charcoal;
+  }
+  &.teal {
+    background: $teal;
+  }
+  &.robinBlue {
+    background: $robinBlue;
+  }
+  &.aqua {
+    background: $aqua;
+  }
+  &.fire {
+    background: $fire;
+  }
+  &.royalBlue {
+    background: $royalBlue;
+  }
+  &.forestGreen {
+    background: $forestGreen;
+  }
+  &.goldenrod {
+    background: $goldenrod;
+  }
+  &.orange {
+    background: $orange;
+  }
+  &.purple {
+    background: $purple;
+  }
+}
+
+@mixin full-width() {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin triangle($size: 18px) {
+  display: flex;
+  align-items: center;
+  font-size: $size;
+  &:before {
+    content: '▶';
+    margin-bottom: 0.15em;
+  }
+}
+@mixin content-page-copy {
+  text-align: left;
+  width: $copy-column-width;
+  max-width: 100%;
+  margin-bottom: 160px;
+  color: $white;
+  //
+  // @include width-under($breakpoint-desktop) {
+  //   width: $copy-column-width-sm;
+  // }
+
+  @include width-under($breakpoint-phone) {
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 44px;
+    line-height: 1.1em;
+    letter-spacing: -0.05em;
+
+    @include width-under($breakpoint-tablet) {
+      font-size: 32px;
+    }
+    @include width-under($breakpoint-phone) {
+      font-size: 24px;
+    }
+  }
+
+  h2 {
+    @extend .body-font;
+    text-transform: uppercase;
+    margin-bottom: 2em;
+    font-size: 0.9vw;
+    @include width-under($breakpoint-desktop) {
+      font-size: 18px;
+    }
+    @include width-under($breakpoint-tablet) {
+      font-size: 12px;
+    }
+  }
+  p {
+    @extend .body-font;
+    font-size: 0.9vw;
+
+    @include width-under($breakpoint-huge) {
+      font-size: 18px;
+    }
+    @include width-under($breakpoint-tablet) {
+      font-size: 12px;
+    }
+  }
+}
+
+@mixin video-credits {
+  .text {
+    position: relative;
+    text-align: center;
+
+    .container {
+      // transition: transform 1s cubic-bezier(0.5, 0, 0, 1);
+      overflow: hidden;
+    }
+
+    .credit-text {
+      margin: 0 0 4px;
+      color: $white;
+      // transition: transform 1s cubic-bezier(0.5, 0, 0, 1);
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .client-header {
+      line-height: 1em;
+      font-size: 19px;
+      color: $white;
+      margin: 0;
+
+      .title {
+        text-transform: uppercase;
+      }
+      // text-transform: uppercase;
+    }
+
+    .slide-number {
+      margin: 0;
+      color: $white;
+    }
+  }
+}
+
+@mixin close-button {
+  position: absolute;
+  font-size: 7.5vw;
+  right: 0.075em;
+  top: 0.05em;
+  width: 1em;
+  height: 1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 2;
+  pointer-events: all;
+
+  &:before,
+  &:after {
+    height: 0.085em;
+  }
+}
+
+@mixin image-cursor($url, $default: crosshair) {
+  cursor: url($url) 32 32, $default;
+}
+
+@mixin cursor-down {
+  cursor: url('../../images/icons/down.png') 43 31, crosshair;
+}
+
+@mixin cursor-left {
+  @include image-cursor('../../images/icons/left.png');
+}
+
+@mixin cursor-right {
+  @include image-cursor('../../images/icons/right.png');
+}
+
+@mixin cursor-cross {
+  @include image-cursor('../../images/icons/close.png');
+}
+
+@mixin cursor-cross-black {
+  @include image-cursor('../../images/icons/close--black.png');
+}
+
+@mixin cursor-click {
+  @include image-cursor('../../images/icons/close.png', pointer);
+}
+
+@mixin cursor-click-black {
+  @include image-cursor('../../images/icons/close--black.png', pointer);
+}
+
+@mixin cursor-play {
+  @include image-cursor('../../images/icons/play.png', pointer);
+}

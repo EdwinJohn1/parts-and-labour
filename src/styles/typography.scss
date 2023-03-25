@@ -1,0 +1,210 @@
+@import './variables';
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-transform: uppercase;
+}
+
+img {
+  font-size: 14px;
+  line-height: 1em;
+}
+
+.body-font {
+  font-family: 'HelveticaNeue Medium', sans-serif;
+  font-size: 14px;
+  line-height: 1em;
+  letter-spacing: -0.015em;
+
+  &.highlight {
+    color: $white;
+  }
+
+  &.alt {
+    font-family: 'HelveticaNeue', sans-serif;
+  }
+
+  &.responsive {
+    font-size: $header-font-size;
+  }
+  &.justify {
+    text-align: justify;
+    text-align-last: justify;
+  }
+  &.cursive-font,
+  .cursive-font {
+    font-family: 'SnellRoundhand';
+  }
+
+  &.bold,
+  .bold {
+    @extend .body-font-bold;
+
+    &.cursive-font {
+        font-family: 'SnellRoundhandBlack';
+        letter-spacing: -0.014em;
+        padding-right: 0.2em;
+    }
+  }
+  .display,
+  &.display {
+    font-family: 'Aksidenz', sans-serif;
+  }
+
+  .lowercase,
+  &.lowercase {
+    text-transform: lowercase;
+  }
+
+  &.normal-case,
+  .normal-case {
+    text-transform: none;
+  }
+  &.superscript,
+  .superscript {
+    font-size: 0.5em;
+    transform: translateY(-50%);
+    display: inline-block;
+  }
+  &.subscript,
+  .subscript {
+    font-size: 0.66em;
+    line-height: 0;
+  }
+  &.centered {
+    text-align: center;
+  }
+  &.right,
+  .right {
+    text-align: right;
+  }
+  .standard,
+  &.standard {
+    font-family: 'HelveticaNeue Medium', sans-serif;
+    font-weight: normal;
+    line-height: 1em
+  }
+
+  .underlined,
+  &.underlined {
+    padding-bottom: 1px;
+    border-bottom: 1px solid currentColor;
+    line-height: 1em;
+  }
+  .small-caps,
+  &.small-caps {
+    font-size: 0.66em;
+  }
+
+  .indent,
+  &.indent {
+    margin-left: 1em
+  }
+
+  .italic,
+  &.italic {
+    font-style: italic;
+  }
+
+}
+
+.body-font-italic {
+  font-family: 'HelveticaNeue Medium Italic', sans-serif;
+}
+
+.italic {
+  @extend .body-font-italic;
+}
+
+.body-font-bold {
+  font-family: 'HelveticaNeue Bold', sans-serif;
+}
+
+.body-font-black {
+  font-family: 'HelveticaNeue Bold', sans-serif;
+}
+
+.button-font {
+  @extend .body-font;
+}
+
+.button-font-bold {
+  @extend .body-font-bold;
+}
+
+.display-font {
+  @extend .body-font-bold;
+  font-family: 'Aksidenz', sans-serif;
+  line-height: 0.85em;
+}
+
+.display-font-alt {
+  @extend .display-font;
+}
+
+.bold-italic {
+  @extend .body-font-italic;
+}
+
+.heading-1 {
+  @extend .display-font;
+  letter-spacing: 0em;
+}
+
+.heading-1--size-1 {
+  @extend .heading-1;
+  font-size: 7.5vw;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.heading-1--size-2 {
+  @extend .heading-1;
+  font-size: calc(9.5vw - 32px);
+  margin: 0;
+}
+
+.heading-1--size-3 {
+  @extend .heading-1;
+  font-size: calc(6.35vw - 32px);
+  margin: 0;
+}
+
+.cursive-font {
+  font-family: 'SnellRoundhand';
+  &.bold {
+    font-family: 'SnellRoundhandBlack';
+    letter-spacing: -0.014em;
+  }
+
+  &.display {
+    font-size: calc(6vw - 32px);
+    margin: 0;
+    line-height: 0.85;
+  }
+}
+
+.heading-2,
+.heading-3,
+.heading-4,
+.heading-5 {
+  @extend .display-font;
+  // letter-spacing: 0.025em;
+}
+
+.heading-alt {
+  @extend .display-font-alt;
+  text-align: center;
+  // text-transform: uppercase;
+}
+
+.paragraph {
+  @extend .body-font;
+}
+
+.anchor {
+  display: inline-block;
+  position: relative;
+  color: $highlight;
+  cursor: pointer;
+}
