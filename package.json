@@ -1,0 +1,35 @@
+{
+  "name": "parts-labour-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "parts-labour-website",
+  "author": "Conor Britain",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "gatsby": "^5.8.0",
+    "gatsby-plugin-image": "^3.8.0",
+    "gatsby-plugin-manifest": "^5.8.0",
+    "gatsby-plugin-react-helmet": "^6.8.0",
+    "gatsby-plugin-sass": "^6.8.0",
+    "gatsby-plugin-sharp": "^5.8.0",
+    "gatsby-source-filesystem": "^5.8.0",
+    "gatsby-transformer-sharp": "^5.8.0",
+    "gatsby-transformer-yaml": "^5.8.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-intersection-observer": "^9.4.3",
+    "react-redux": "^8.0.5",
+    "react-transition-group": "^4.4.5",
+    "redux": "^4.2.1",
+    "sass": "^1.60.0"
+  }
+}

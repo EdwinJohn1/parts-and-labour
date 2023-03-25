@@ -1,0 +1,92 @@
+@import './../mixins';
+@import './../variables';
+@import './../animations';
+@import './../typography';
+
+@mixin transition($off, $on, $delayOff:0s, $delayOn:0s) {
+    &.on {
+        transform: translate($on);
+        transition-delay: $delayOn
+    }
+    &.off {
+        transform: translate($off);
+        transition-delay: $delayOff
+    }
+}
+
+.pal-logo-anim {
+    .letter {
+        transition-duration: 0.35s;
+        transition-timing-function: cubic-bezier(0.25,0,0,1);
+        &.blocker {
+            fill: $eggshell;
+        }
+        &:not(.blocker) {
+            fill: $black;
+        }
+
+        &.l {
+            @include transition( -24%, -4.25%, 0.2s, 0.2s); // l
+        }
+
+        &.amp {
+            @include transition( -24%, -4%, 0.2s, 0.3s); // amp
+        }
+
+        &.p {
+            @include transition( -6%, -23%); // p
+        }
+
+        &.blocker {
+            @include transition( -1%, -18%); // p
+        }
+
+        &.blocker-2 {
+            @include transition( -5%, -18%); // p
+        }
+
+        &.a {
+            @include transition( -6%, 12.5%, 0s, 0.4s); // a
+        }
+
+        &.r {
+            @include transition( -6%, 12.5%, 0.1s, 0.3s); // r
+        }
+
+        &.t {
+            @include transition( -6%, 12.5%, 0.2s, 0.2s); // t
+        }
+
+        &.s {
+            @include transition( -6%, 12.5%, 0.3s, 0.1s); // s
+        }
+
+        &.amp2 {
+            @include transition( -6%, 12.5%, 0.4s, 0s); // amp
+        }
+
+        &.l2 {
+            @include transition( -5%, 5%, 0s, 0.5s); // l
+        }
+
+        &.a2 {
+            @include transition( -5%, 5%, 0.1s, 0.4s); // a
+        }
+
+        &.b {
+            @include transition( -5%, 5%, 0.2s, 0.3s); // b
+        }
+
+        &.o {
+            @include transition( -5%, 5%, 0.3s, 0.2s); // o
+        }
+
+        &.u {
+            @include transition( -5%, 5%, 0.4s, 0.1s); // u
+        }
+
+        &.r2 {
+            @include transition( -5%, 5%, 0.5s, 0s); // r
+        }
+    }
+}
