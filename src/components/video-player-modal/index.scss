@@ -1,0 +1,469 @@
+@import './../../styles/mixins';
+@import './../../styles/variables';
+@import './../../styles/animations';
+
+$pos0: translate3d(0, calc(-62.5% - 300vh), -600px);
+$pos1: translate3d(0, calc(-62.5% - 50vh), -400px);
+$pos2: translate3d(0,0,0);
+$pos3: translate3d(0, calc(62.5% + 50vh), -400px);
+$pos4: translate3d(0, calc(62.5% + 300vh), -600px);
+
+.video-player-modal {
+  @include full-width();
+  overflow: hidden;
+  pointer-events: none;
+
+  &__carousel {
+    @include full-width();
+    perspective: 500px;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &__slide {
+    @include full-width();
+    pointer-events: none;
+    perspective: 500px;
+
+    &__container {
+      @include full-width();
+      perspective: 500px;
+      &--enabled {
+        pointer-events: all;
+      }
+
+      &--can-bounce {
+        .video-panel--active.video-panel--shrink {
+          transition: all 0.1s cubic-bezier(0.2,0,0,1);
+        }
+      }
+      &--bounce {
+        .video-panel--active.video-panel--shrink {
+          transform: translate3d(0,0,-50px);
+          img, video {
+            opacity: 0.75;
+          }
+        }
+      }
+    }
+
+    .video-panel {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    &--transition {
+      transition: all 0.5s cubic-bezier(0.2,0,0,1);
+    }
+
+
+    &--pos-0 {
+      transform: $pos0;
+      z-index: 0;
+
+      &--transition-next {
+        transform: $pos1;
+      }
+    }
+
+    &--pos-1 {
+      transform: $pos1;
+      z-index: 1;
+
+      &--transition-prev {
+        transform: $pos0;
+      }
+
+      &--transition-next {
+        transform: $pos2;
+      }
+    }
+
+    &--pos-2 {
+      transform: $pos2;
+      z-index: 2;
+
+      &--transition-prev {
+        transform: $pos1;
+      }
+
+      &--transition-next {
+        transform: $pos3;
+      }
+    }
+
+    &--pos-3 {
+      transform: $pos3;
+      z-index: 1;
+
+      &--transition-prev {
+        transform: $pos2;
+      }
+
+      &--transition-next {
+        transform: $pos4;
+      }
+    }
+
+    &--pos-4 {
+      transform: $pos4;
+      z-index: 0;
+
+      &--transition-prev {
+        transform: $pos3;
+      }
+    }
+  }
+
+  &__ui {
+    @include full-width();
+    z-index: 1;
+    pointer-events: none;
+    .close {
+      @include close-button;
+
+      right: calc(2.5vw - 0.075em);
+      top: calc(2.5vw - 0.05em);
+      pointer-events: all;
+    }
+
+
+    .nav-btn {
+      width: 3vw;
+      height: 3vw;
+      background: none;
+      border: none;
+      position: absolute;
+      z-index: 2;
+      cursor: pointer;
+      pointer-events: all;
+
+      &--left {
+        transform: translateY(-50%) rotate(-90deg);
+        top: 50vh;
+        left: 5vw;
+      }
+      &--right {
+        transform: translateY(-50%) rotate(90deg);
+        top: 50vh;
+        right: 5vw;
+      }
+    }
+  }
+
+  &__overlay {
+    @include full-width();
+    display: flex;
+    align-items: stretch;
+    z-index: 0;
+
+    &__left,
+    &__right {
+      flex: 1 1 50%;
+    }
+  }
+}
+
+.video-panel {
+  @include full-width();
+  background: rgba(0,0,0,0);
+  transition: all 0.5s cubic-bezier(0,0.85,0,1);
+
+  &--shrink {
+    transform: translate3d(0,0,-50px);
+    .video-panel__cover {
+      transition: opacity 0.05s linear;
+    }
+  }
+  &--fullscreen {
+    transform: translate3d(0,0,0);
+    cursor: pointer;
+    pointer-events: all;
+    .video-panel__cover {
+      transition: opacity 0.25s linear;
+    }
+  }
+
+  &__scrim {
+    @include full-width();
+  }
+
+  &__video {
+    pointer-events: all;
+    cursor: pointer;
+    width: 100vw;
+  }
+
+  &__cover {
+    @include full-width();
+    z-index: 1;
+
+    img {
+      @include full-width();
+      object-fit: cover;
+      animation: fade-in 0.5s linear 0.25s;
+      animation-fill-mode: backwards;
+    }
+    &--has-cover {
+      // background: black;
+    }
+    &--active {
+      opacity: 1;
+    }
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    p.responsive {
+      font-size: 1.5vw;
+      animation: fade-in 0.5s linear 0.25s;
+      animation-fill-mode: backwards;
+
+
+    }
+  }
+
+  &__clips {
+    @include full-width();
+    .video-clips {
+      @include full-width();
+
+      .progressive-video {
+        @include full-width();
+        background: black;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  &__meta {
+    @include full-width();
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__text {
+      overflow: hidden;
+      display: block;
+    }
+
+    .responsive {
+      font-size: 3vw;
+      text-align: center;
+      margin: 0;
+      transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1);
+      transform: translateY(100%);
+    }
+
+    &--display {
+      .video-panel__meta__text {
+        .responsive {
+          transform: translateY(0%);
+        }
+
+        &:nth-child(2) .responsive {
+          transition-delay: 0.1s;
+        }
+
+        &:nth-child(3) .responsive {
+          transition-delay: 0.2s;
+        }
+      }
+    }
+  }
+
+  button {
+    background: none;
+    color: $white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      // color: $gold;
+    }
+  }
+
+  button {
+    font-size: 15px;
+    line-height: 1;
+    padding: 0;
+  }
+
+  &__content {
+    @include full-width();
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+
+    @include width-under($breakpoint-phone) {
+      padding: 30px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    width: 100%;
+    flex: 0 0 auto;
+    height: auto;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 2.5vw;
+    pointer-events: none;
+    align-items: flex-start;
+    transition: opacity 0.5s linear;
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.visible {
+      opacity: 1;
+    }
+
+    p.responsive {
+      margin-top: 0;
+      margin-bottom: 0;
+      .small {
+        font-size: 0.6em;
+      }
+    }
+
+    &__left, &__right {
+      flex: 1 1 100%;
+    }
+
+    &__center {
+      margin: 0 32px;
+    }
+
+
+    &__center {
+      flex: none;
+    }
+
+    @include width-under($breakpoint-phone) {
+      flex: 0 0 auto;
+      height: auto;
+    }
+  }
+  &__player {
+    width: 80vw;
+    margin: auto;
+    position: relative;
+    // left: 50%;
+    // transform: translateX(-50%);
+    // padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.5s ease-out;
+    justify-content: center;
+    &.hidden {
+      opacity: 0;
+    }
+
+    .video-player {
+      flex: 0;
+      position: relative;
+      &__progress-bar {
+        position: absolute;
+        bottom:0;
+        pointer-events: all;
+        cursor: crosshair;
+      }
+
+      &__player {
+        flex: 0;
+        // height: calc(100vh - 240px);
+        display: block;
+        &--hidden {
+          opacity: 0;
+        }
+        &--active {
+          opacity: 1;
+        }
+        video {
+          position: relative;
+          width: 100%;
+          max-height: 100vh;
+          height: auto;
+          object-fit: contain;
+        }
+      }
+    }
+  }
+
+  &__footer {
+    flex: 0;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    transition: opacity 0.25s linear;
+
+    &.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &.visible {
+      opacity: 1;
+    }
+
+    @include width-under($breakpoint-phone) {
+      flex-wrap: wrap;
+    }
+
+    .text {
+      position: relative;
+      flex: 1;
+      text-align: center;
+
+      .title {
+        @include center;
+        top: 0;
+        transform: translate(-50%, 0);
+
+        &__transition {
+          @include title-transitions;
+        }
+        @include width-under($breakpoint-phone) {
+          position: relative;
+          width: 100%;
+          transform: inherit;
+          margin-top: 12px;
+          left: 0;
+        }
+      }
+
+      p {
+        margin: 0;
+        line-height: 1;
+        font-size: 15px;
+        text-transform: uppercase;
+        color: $white;
+        @include width-under($breakpoint-phone) {
+          text-align: center;
+        }
+      }
+
+      @include width-under($breakpoint-phone) {
+        order: 3;
+        flex: 0 0 100%;
+      }
+    }
+  }
+
+  .director-bio {
+    z-index: 0;
+  }
+}

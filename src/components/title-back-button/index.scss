@@ -1,0 +1,46 @@
+@import './../../styles/mixins';
+@import './../../styles/typography';
+@import './../../styles/variables';
+
+.title-back-button {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    font-size: $display-font-size;
+    color: black;
+    .close {
+      @include close-button;
+      margin: 0;
+      transform: translateY(-0.15em);
+      top: 0;
+      &:before,
+      &:after {
+          background: black;
+      }
+    }
+
+    &__heading {
+      &.has-subtitle {
+        max-width: calc(17em - (7.5vw + 16px));
+      }
+
+      position: relative;
+    }
+
+    &__title {
+      width: auto;
+      word-wrap: break-word;
+    }
+
+    &__subtitle {
+      @extend .heading-1--size-2;
+      position: absolute;
+      left: 100%;
+      bottom: 0.05em;
+      width: 2.5em;
+
+      p.responsive {
+        padding-left: 1em;
+      }
+    }
+}

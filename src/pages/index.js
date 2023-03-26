@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import PalLogoAnim from '../components/pl-logo-anim'
-import ProjectIntro from '../components/project-intro'
-// import Projects from '../components/projects'
-import SEO from '../components/seo'
-import '../styles/pages/home.scss'
+import PalLogoAnim from '../elements/pl-logo-anim'
+import MissionStatement from '../components/mission-statement'
+import Projects from '../components/projects'
+import SEO from '../elements/seo'
 import ContentPage from '../templates/content-page'
+import './index/index.scss'
 
 const IndexPage = () => {
   useState(() => {
@@ -54,7 +54,7 @@ const IndexPage = () => {
                 </div>
                 <div>
                   <div className="spacing spacing--medium line"></div>
-                  <ProjectIntro />
+                  <MissionStatement />
                   <div className="spacing spacing--medium line"></div>
                 </div>
               </div>
@@ -62,13 +62,11 @@ const IndexPage = () => {
           </div>
           <div className="container list-section">
             <div className="list-section__projects">
-              {/* <Projects
+              <Projects
                 root={parent}
                 showProjects={true}
-                onRemoveProjects={() =>
-                  this.setState({projectsRemoved: true})
-                }
-              /> */}
+                onRemoveProjects={() => this.setState({projectsRemoved: true})}
+              />
             </div>
           </div>
         </>

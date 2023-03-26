@@ -1,3 +1,9 @@
 node_modules/
 .cache/
 public
+
+#google cloud bucket security credentials
+gcb-service-account-credentials.json
+
+#Mac filesystem
+.DS_Store

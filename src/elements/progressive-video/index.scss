@@ -1,0 +1,59 @@
+@import './../../styles/mixins';
+@import './../../styles/typography';
+@import './../../styles/variables';
+
+@keyframes videoLoad {
+  0% {
+    opacity: 0.25;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.25;
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.progressive-video {
+  &.fade {
+    video,
+    img {
+      transition: opacity 0.5s linear;
+    }
+  }
+
+  img {
+    opacity: 0.5;
+  }
+  
+  video {
+    opacity: 0;
+  }
+
+  &.is-loaded {
+    video {
+      opacity: 1;
+    }
+    img {
+      opacity: 0;
+    }
+  }
+
+  &.cancelled-load {
+    img {
+      opacity: 1;
+    }
+  }
+}

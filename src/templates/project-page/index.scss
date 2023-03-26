@@ -1,0 +1,19 @@
+@import './../../styles/variables';
+
+.project {
+  padding-top: calc(#{$header-height} - 16px);
+}
+
+.project-page {
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+
+  .content-block {
+    // margin-bottom: 18px;
+    // color: $eggshell;
+    p.display.responsive.justify a {
+      // color: $eggshell;
+    }
+  }
+}

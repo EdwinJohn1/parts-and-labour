@@ -1,0 +1,87 @@
+name: Sepia
+role: Director
+slug: sepia
+image: ../images/about/sepia.jpg
+url: /talent/sepia
+clips:
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_1.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_2.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_3.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_4.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_5.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_6.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_7.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_8.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_9.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_10.mp4
+first: Sepia
+last:
+bio: >-
+  The sepia filter is often used to give a sense of gravity to a visual image,
+  so it’s an especially fitting name for this Argentinian-born director.
+  Originally someone who translated his skills as a musician to the world
+  of music videos, Sepia’s visual mastery soon attracted the attention of
+  such blue chip advertisers as Amazon, LG, Citroen, Renault and Universal
+  Music for whom he has garnered a host of prestigious awards
+  (Cannes, Clio, Wave, Sol).<br /><br />
+
+  A true international citizen, the visual landscapes created by Sepia by
+  way of color and light create a language that is understood by us all.
+awards:
+  - fields:
+      - style: bold
+        text: CRESTA AWARDS
+      - style: italic
+        text: >-
+          2017
+  - fields:
+      - style: bold
+        text: ONE SHOW
+      - style: italic
+        text: >-
+          2017
+      - style: standard
+        text: Bronze
+  - fields:
+      - style: bold
+        text: ONE SHOW
+      - style: italic
+        text: >-
+          2017
+      - style: standard
+        text: MERIT
+  - fields:
+      - style: bold
+        text: CLIO
+      - style: italic
+        text: >-
+          2017
+      - style: standard
+        text: SHORTLIST
+  - fields:
+      - style: bold
+        text: UROBEST
+      - style: italic
+        text: >-
+          2016
+      - style: standard
+        text: GOLD
+  - fields:
+      - style: bold
+        text: EPICA
+      - style: italic
+        text: >-
+          2016
+      - style: standard
+        text: GOLD
+  - fields:
+      - style: bold
+        text: EL DIENTE AWARD
+      - style: italic
+        text: >-
+          2015
+      - style: standard
+        text: SILVER
+titles:
+  - Film Director
+  - Musician

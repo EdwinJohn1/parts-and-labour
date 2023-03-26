@@ -1,0 +1,69 @@
+@import './../../styles/variables';
+@import './../../styles/typography';
+
+.content-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // transition: opacity 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+
+  &--no-header {
+    padding-top: 0;
+  }
+
+  .headline {
+    @extend .display-font;
+    font-size: 36px;
+    letter-spacing: 1px;
+    margin: 16px auto 26px;
+  }
+
+  .body-copy {
+    @extend .body-font;
+    position: relative;
+    max-width: $breakpoint-tablet;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.75em;
+    margin: 0 auto 28px;
+  }
+
+  .logo-link {
+    position: relative;
+    display: block;
+    margin: 0 auto 40px;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+  }
+
+  .content-container {
+    min-height: 0;
+    height: 100vh;
+    width: 100%;
+    padding: $page-spacing;
+    display: flex;
+    flex-direction: column;
+
+    .site-footer {
+      flex: 1;
+    }
+  }
+
+  & > .content {
+    height: 100vh;
+    overflow: scroll;
+  }
+
+  // transition link wrapper class
+}
