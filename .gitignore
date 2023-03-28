@@ -1,6 +1,7 @@
 node_modules/
 .cache/
 public
+.env
 
 #google cloud bucket security credentials
 gcb-service-account-credentials.json

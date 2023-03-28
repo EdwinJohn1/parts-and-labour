@@ -1,7 +1,7 @@
 name: Sepia
 role: Director
 slug: sepia
-image: ../images/about/sepia.jpg
+image: ../../images/about/sepia.jpg
 url: /talent/sepia
 clips:
   - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Sepia/Sepia_1.mp4

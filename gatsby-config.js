@@ -10,25 +10,16 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-sass',
-    'gatsby-plugin-image',
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, // Needed for dynamic images
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/icon.png',
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     `gatsby-transformer-yaml`,
-    {
-      resolve: 'gatsby-source-google-storage',
-      options: {
-        projectId: 'parts-and-labour',
-        keyFilename: path.resolve('gcb-service-account-credentials.json'),
-        buckets: ['pal-assets'],
-        expiration: Date.now() + 1000 * 60 * 60, // optional, default one-hour
-      },
-    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

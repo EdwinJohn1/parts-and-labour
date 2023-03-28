@@ -15,6 +15,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
+    "@google-cloud/storage": "^6.9.4",
     "gatsby": "^5.8.0",
     "gatsby-plugin-image": "^3.8.0",
     "gatsby-plugin-manifest": "^5.8.0",
@@ -22,7 +23,6 @@
     "gatsby-plugin-sass": "^6.8.0",
     "gatsby-plugin-sharp": "^5.8.0",
     "gatsby-source-filesystem": "^5.8.0",
-    "gatsby-source-google-storage": "^1.1.1",
     "gatsby-transformer-sharp": "^5.8.0",
     "gatsby-transformer-yaml": "^5.8.0",
     "gsap": "^3.11.5",

@@ -59,8 +59,9 @@ const numberOfProjects = 28
 const getDefaultData = (defaultData) => {
   const {
     got,
-    // ganas,
-    // motorsport,
+    motorsport,
+    morningShow,
+    zoe,
     // boundless,
     // nbn,
     // buddy,
@@ -74,7 +75,6 @@ const getDefaultData = (defaultData) => {
     // jm,
     // sepia,
     // meta,
-    // morningshow,
     // amos,
     // elGallo,
     // quatrieme,
@@ -120,7 +120,7 @@ const getDefaultData = (defaultData) => {
         <>
           <SectionTitle title="360/VR, VISUAL FX & MOTION DESIGN" />
           <ProjectList
-            projects={[got /*, motorsport, morningshow */]}
+            projects={[got, motorsport, morningShow]}
             layoutType={'columns'}
             metaType="poster"
             dividerBottom={true}
@@ -265,7 +265,7 @@ const getDefaultData = (defaultData) => {
               <div className="spacing line" />
               <div className="spacing no-top" />
               <ProjectList
-                projects={[ganas, nbn, boundless]}
+                projects={[zoe, nbn, boundless]}
                 layoutType="columns"
                 metaType="poster"
               />
@@ -390,6 +390,15 @@ const Projects = ({projectSections, root}) => {
         summary
       }
       got: projectsYaml(slug: {eq: "got"}) {
+        ...project
+      }
+      motorsport: projectsYaml(slug: {eq: "motorsport"}) {
+        ...project
+      }
+      morningShow: projectsYaml(slug: {eq: "morning-show"}) {
+        ...project
+      }
+      zoe: projectsYaml(slug: {eq: "zoe"}) {
         ...project
       }
     }

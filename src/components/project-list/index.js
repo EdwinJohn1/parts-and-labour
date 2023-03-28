@@ -1,4 +1,6 @@
 import {graphql, Link, StaticQuery} from 'gatsby'
+import {GatsbyImage, getImage} from 'gatsby-plugin-image'
+
 import React from 'react'
 import {TransitionGroup} from 'react-transition-group'
 import ProjectPage from '../../templates/project-page'
@@ -201,7 +203,6 @@ const Project = ({
     creditName,
     category,
     type,
-    serviceImage,
     imageSquare,
     poster,
     gallery,
@@ -229,12 +230,16 @@ const Project = ({
   const isVideoMeta = isRowLayout || metaType === 'video'
   const isBrandingSubtype = metaSubtype === 'branding'
 
-  const imageToUse = isSquareMeta
+  const imageToUse = isImageMeta
+    ? image
+    : isSquareMeta
     ? imageSquare || image
     : isColumnLayout
     ? poster
-    : serviceImage || (gallery && gallery[0])
+    : gallery && gallery[0]
 
+  const gatsbyImage = imageToUse && getImage(imageToUse)
+  console.log(gatsbyImage)
   const shouldUseTitleShort =
     isColumnLayout && !isColumnHero && !isGridLayout && titleShort
   const shouldUseClientShort =
@@ -374,24 +379,21 @@ const Project = ({
           hideMeta ? 'no-meta' : ''
         }`}
       >
-        {
-          previewVideo ? (
-            <ProgressiveVideo
-              sources={[
-                {
-                  src: previewVideo,
-                  type: 'video/mp4',
-                },
-              ]}
-              neverTimeout={true}
-              loop={true}
-            />
-          ) : isImageMeta ? (
-            <img className="image" src={image} />
-          ) : (
-            <img />
-          ) // <img src={imageToUse && imageToUse.childImageSharp.fluid.src} />
-        }
+        {previewVideo ? (
+          <ProgressiveVideo
+            sources={[
+              {
+                src: previewVideo,
+                type: 'video/mp4',
+              },
+            ]}
+            neverTimeout={true}
+            loop={true}
+          />
+        ) : (
+          // <GatsbyImage className="image" image={gatsbyImage} />
+          <img />
+        )}
         {/* <VideoClips videos={clips} isActive={true} /> */}
         {isVideoMeta && (
           <>

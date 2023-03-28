@@ -3,47 +3,29 @@ import {graphql} from 'gatsby'
 export const heroImageFragment = graphql`
   fragment heroImage on File {
     childImageSharp {
-      fluid(maxWidth: 1920) {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(width: 1920, placeholder: BLURRED)
     }
   }
 `
 export const posterImageFragment = graphql`
   fragment posterImage on File {
     childImageSharp {
-      fluid(maxWidth: 905) {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(width: 905, placeholder: BLURRED)
     }
   }
 `
-export const billboardImageFragment = graphql`
-  fragment billboardImage on File {
-    childImageSharp {
-      fluid(maxWidth: 1590) {
-        ...GatsbyImageSharpFluid
-      }
-    }
-    extension
-    publicURL
-  }
-`
+
 export const shopImageFragment = graphql`
   fragment shopImage on File {
     childImageSharp {
-      fluid(maxWidth: 800) {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(width: 800, placeholder: BLURRED)
     }
   }
 `
 export const newsGalleryImageFragment = graphql`
   fragment newsGalleryImage on File {
     childImageSharp {
-      fluid(maxWidth: 1350) {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(width: 1350, placeholder: BLURRED)
     }
     extension
     publicURL
@@ -52,18 +34,14 @@ export const newsGalleryImageFragment = graphql`
 export const squareImageFragment = graphql`
   fragment squareImage on File {
     childImageSharp {
-      fluid(maxWidth: 1620) {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(width: 1620, placeholder: BLURRED)
     }
   }
 `
 export const coverImageFragment = graphql`
   fragment coverImage on File {
     childImageSharp {
-      fluid(maxWidth: 1400) {
-        ...GatsbyImageSharpFluid
-      }
+      gatsbyImageData(width: 1400, placeholder: BLURRED)
     }
   }
 `
@@ -82,10 +60,17 @@ export const projectFragment = graphql`
     preview
     synopsis
     video
+    image {
+      ...heroImage
+    }
+    coverImage {
+      ...coverImage
+    }
     category
     poster {
       ...posterImage
     }
+    galleryAspectRatio
     gallery {
       ...heroImage
     }

@@ -3,7 +3,7 @@ role: Director
 first: Joshua
 last: Eady
 slug: josh-eady
-image: ../images/about/josh.jpg
+image: ../../images/about/josh.jpg
 url: /talent/josh-eady
 clips:
   - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Josh_Eady/Josh_1.mp4
