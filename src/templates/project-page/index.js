@@ -13,16 +13,14 @@ const ProjectPage = (context) => {
         menuColor={project.menuColor}
         logoColor={project.isDark ? 'white' : 'black'}
         headerBackgroundColor={project.background || 'charcoal'}
-        render={({parent}) => (
-          <Detail
-            {...{
-              content: project,
-              root: parent,
-              includeFooter: true,
-            }}
-          />
-        )}
-      />
+      >
+        <Detail
+          {...{
+            content: project,
+            includeFooter: true,
+          }}
+        />
+      </ContentPage>
     </div>
   ) : (
     <Detail {...context} content={project} />

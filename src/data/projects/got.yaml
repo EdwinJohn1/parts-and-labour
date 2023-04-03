@@ -17,7 +17,6 @@ gcbImage: projects/got/hero.jpg
 # TODO: REMOVE
 gcbImageSquare: projects/got/poster.jpg
 gcbPoster: projects/got/poster.jpg
-gcbCoverImage: projects/got/poster.jpg
 gcbGallery:
   - projects/got/gallery/1.jpg
   - projects/got/gallery/2.jpg

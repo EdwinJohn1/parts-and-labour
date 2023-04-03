@@ -17,9 +17,6 @@ const aspectRatios = {
   fullscreen: '4 / 3',
 }
 
-const randomIntFromInterval = (min, max) =>
-  Math.floor(Math.random() * (max - min + 1) + min)
-
 const Project = (props) => {
   const {
     root,

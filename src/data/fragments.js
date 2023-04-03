@@ -7,6 +7,13 @@ export const heroImageFragment = graphql`
     }
   }
 `
+export const logoImageFragment = graphql`
+  fragment logoImage on File {
+    childImageSharp {
+      gatsbyImageData(width: 600, placeholder: BLURRED)
+    }
+  }
+`
 export const posterImageFragment = graphql`
   fragment posterImage on File {
     childImageSharp {
@@ -22,26 +29,11 @@ export const shopImageFragment = graphql`
     }
   }
 `
-export const newsGalleryImageFragment = graphql`
-  fragment newsGalleryImage on File {
-    childImageSharp {
-      gatsbyImageData(width: 1350, placeholder: BLURRED)
-    }
-    extension
-    publicURL
-  }
-`
+
 export const squareImageFragment = graphql`
   fragment squareImage on File {
     childImageSharp {
       gatsbyImageData(width: 1620, placeholder: BLURRED)
-    }
-  }
-`
-export const coverImageFragment = graphql`
-  fragment coverImage on File {
-    childImageSharp {
-      gatsbyImageData(width: 1400, placeholder: BLURRED)
     }
   }
 `
@@ -62,9 +54,6 @@ export const projectFragment = graphql`
     video
     image {
       ...heroImage
-    }
-    coverImage {
-      ...coverImage
     }
     category
     poster {
@@ -97,6 +86,51 @@ export const directorFragment = graphql`
       fields {
         style
         text
+      }
+    }
+    titles
+  }
+`
+
+export const newsFragment = graphql`
+  fragment news on NewsYaml {
+    slug
+    date
+    title
+    category
+    year
+    description
+    meta
+    lists {
+      titleBold
+      subtitle
+      items
+    }
+    region
+    language
+    image {
+      ...squareImage
+    }
+    runtime
+    link
+  }
+`
+
+export const caseStudyFragment = graphql`
+  fragment caseStudy on CaseStudiesYaml {
+    slug
+    title
+    client
+    year
+    sections {
+      title
+      location
+      date
+      image {
+        ...squareImage
+      }
+      gallery {
+        ...heroImage
       }
     }
   }

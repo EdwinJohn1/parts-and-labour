@@ -1,0 +1,28 @@
+client: 'Thugli'
+title: Run This
+slug: run-this
+credit: Director
+creditName: 'Amos Le Blanc'
+creditSlug: amos-leblanc
+video: http://thelodgevideos.akamaized.net/podium/AL_RunThis.mp4
+billboard: projects/runthis/billboard.jpg
+gcbGallery:
+  - projects/runthis/gallery/1.jpg
+  - projects/runthis/gallery/2.jpg
+  - projects/runthis/gallery/3.jpg
+  - projects/runthis/gallery/4.jpg
+  - projects/runthis/gallery/5.jpg
+  - projects/runthis/gallery/6.jpg
+preview: http://thelodgevideos.akamaized.net/podium/pal-clips/AL_run_this.mp4
+clips:
+  - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/AL_run_this.mp4
+gcbImage: projects/runthis/hero.jpg
+gcbImageSquare: projects/runthis/square.jpg
+synopsis: >-
+  Amos Leblanc’s masterpiece for music duo Thugli is so good you might think
+  the soundtrack was created for the video. 40 million views on Youtube and
+  counting.
+timecode: 00:04:29
+year: 2017
+region: UNITED STATES / MEXICO
+language: VOST (vo)SPANISH (st)ENGLISH

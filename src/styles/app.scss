@@ -39,8 +39,6 @@
 html,
 body {
   @extend .body-font;
-  position: fixed;
-  overflow: hidden;
   width: 100%;
   background: $eggshell;
 }

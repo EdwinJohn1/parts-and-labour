@@ -1,6 +1,7 @@
 const {Storage} = require('@google-cloud/storage')
 const {createRemoteFileNode} = require('gatsby-source-filesystem')
 const path = require(`path`)
+const hash = require(`object-hash`)
 
 require('dotenv').config({
   path: `.env`,
@@ -19,27 +20,75 @@ const getSignedUrl = async (file) => {
     action: 'read',
     expires: expiration,
   }
-
+  // console.log('getting signed url for', file)
   return await storage.bucket(bucket).file(file).getSignedUrl(signedOptions)
 }
 
-exports.createSchemaCustomization = ({actions}) => {
+exports.createSchemaCustomization = ({actions, schema}) => {
   const {createTypes} = actions
 
-  createTypes(`
-    type ProjectsYaml implements Node {
-      gcbPoster: String
+  const typeDefs = [
+    schema.buildObjectType({
+      name: `CaseStudiesSection`,
+      fields: {
+        image: {
+          type: 'File',
+          resolve: (source, args, context) => {
+            if (!source.gcbImage) return
+            const id = `case-study-image__${hash(source)}`
+            return context.nodeModel.getNodeById({
+              id,
+              type: 'File',
+            })
+          },
+        },
+        gallery: {
+          type: '[File]',
+          resolve: (source, args, context) => {
+            if (!source.gcbGallery) return
+            const galleryHash = hash(source)
+            const images = source.gcbGallery.map((_img, index) => {
+              const id = `case-study-gallery__${galleryHash}-${index}`
+              return context.nodeModel.getNodeById({
+                id,
+                type: 'File',
+              })
+            })
+            return images
+          },
+        },
+      },
+    }),
+  ]
+
+  createTypes([
+    ...typeDefs,
+    `type LogosYaml implements Node {
       gcbImage: String
-      gcbImageSquare: String
-      gcbCoverImage: String
-      gcbGallery: [String]
-      poster: File @link(from: "fields.posterFile")
-      gallery: [File] @link(from: "fields.galleryFile")
-      image: File @link(from: "fields.imageFile")
-      imageSquare: File @link(from: "fields.imageSquareFile")
-      coverImage: File @link(from: "fields.coverFile")
+      image: File @link(from: "fields.logoImageFile")
     }
-  `)
+
+    type NewsYaml implements Node {
+      gcbImage: String
+      image: File @link(from: "fields.newsImageFile")
+    }
+
+    type CaseStudiesYaml implements Node {
+      sections: [CaseStudiesSection]
+    }
+
+    type ProjectsYaml implements Node {
+      gcbImage: String
+      gcbPoster: String
+      gcbImageSquare: String
+      gcbGallery: [String]
+      image: File @link(from: "fields.projectImageFile")
+      poster: File @link(from: "fields.projectPosterFile")
+      gallery: [File] @link(from: "fields.projectGalleryFile")
+      imageSquare: File @link(from: "fields.projectImageSquareFile")
+    }
+  `,
+  ])
 }
 
 exports.onCreateNode = async ({
@@ -48,62 +97,140 @@ exports.onCreateNode = async ({
   createNodeId,
   getCache,
 }) => {
-  const tryCreatingFileNode = async (newNode, url) => {
-    console.log('tryCreatingFileNode:', newNode.slug, url)
-    const signedUrl = await getSignedUrl(url)
+  const createImageFileFromGcb = async ({
+    newNode,
+    image,
+    customCreateNodeId,
+  }) => {
+    console.log('createImageFileFromGcb:', newNode.slug, image)
+    const signedUrl = await getSignedUrl(image)
     if (signedUrl) {
       const signedUrlString = String(signedUrl)
       const fileNode = await createRemoteFileNode({
         url: signedUrlString,
         parentNodeId: newNode.id,
         createNode,
-        createNodeId,
+        createNodeId: customCreateNodeId || createNodeId,
         getCache,
       })
+
       return fileNode
     }
   }
 
-  const createRemoteImageNode = async (newNode, url, name) => {
-    const fileNode = await tryCreatingFileNode(newNode, url)
-
+  const createRemoteImageNode = async (
+    newNode,
+    {image, name, customCreateNodeId}
+  ) => {
+    const fileNode = await createImageFileFromGcb({
+      newNode,
+      image,
+      customCreateNodeId,
+    })
     if (fileNode) {
-      createNodeField({node: newNode, name, value: fileNode.id})
+      // console.log('createRemoteImageNode ', url, name)
+      await createNodeField({node: newNode, name, value: fileNode.id})
     }
   }
 
-  if (node.internal.type === 'ProjectsYaml' && node.gcbPoster) {
-    console.log('generating gcbPoster')
-    await createRemoteImageNode(node, node.gcbPoster, 'posterFile')
-  }
-
-  if (node.internal.type === 'ProjectsYaml' && node.gcbImage) {
-    console.log('generating gcbImage', node.gcbImage)
-    await createRemoteImageNode(node, node.gcbImage, 'imageFile')
-  }
-
-  if (node.internal.type === 'ProjectsYaml' && node.gcbImageSquare) {
-    console.log('generating gcbImageSquare')
-    await createRemoteImageNode(node, node.gcbImageSquare, 'imageSquareFile')
-  }
-
-  if (node.internal.type === 'ProjectsYaml' && node.gcbCoverImage) {
-    console.log('generating gcbCoverImage')
-    await createRemoteImageNode(node, node.gcbCoverImage, 'coverFile')
-  }
-
-  if (node.internal.type === 'ProjectsYaml' && node.gcbGallery) {
-    console.log('generating gcbGallery', node.gcbGallery)
+  const createRemoteImageGalleryNodes = async (
+    newNode,
+    {images, name, customCreateNodeId}
+  ) => {
     const imageNodes = []
 
-    for (let image of node.gcbGallery) {
-      console.log('creating gallery image')
-      const fileNode = await tryCreatingFileNode(node, image)
+    for (let image of images) {
+      const fileNode = await createImageFileFromGcb({
+        newNode,
+        image,
+        customCreateNodeId:
+          customCreateNodeId && customCreateNodeId(images.indexOf(image)),
+      })
 
       if (fileNode) {
         imageNodes.push(fileNode.id)
       }
-      createNodeField({node, name: 'galleryFile', value: imageNodes})
+      // console.log('creating gallery image from ', name, image)
+      await createNodeField({node: newNode, name, value: imageNodes})
+    }
+  }
+  // process logo images
+  if (node.internal.type === 'LogosYaml' && node.gcbImage) {
+    console.log('process logo image')
+    await createRemoteImageNode(node, {
+      image: node.gcbImage,
+      name: 'logoImageFile',
+    })
+  }
+
+  // process project poster images
+  if (node.internal.type === 'ProjectsYaml' && node.gcbPoster) {
+    console.log('process project poster image')
+    await createRemoteImageNode(node, {
+      image: node.gcbPoster,
+      name: 'projectPosterFile',
+    })
+  }
+
+  // process project hero images
+  if (node.internal.type === 'ProjectsYaml' && node.gcbImage) {
+    console.log('process project hero image')
+    await createRemoteImageNode(node, {
+      image: node.gcbImage,
+      name: 'projectImageFile',
+    })
+  }
+
+  // process project square images
+  if (node.internal.type === 'ProjectsYaml' && node.gcbImageSquare) {
+    console.log('process project square image')
+    await createRemoteImageNode(node, {
+      image: node.gcbImageSquare,
+      name: 'projectImageSquareFile',
+    })
+  }
+
+  // process project gallery images
+  if (node.internal.type === 'ProjectsYaml' && node.gcbGallery) {
+    console.log('process project gallery image')
+    await createRemoteImageGalleryNodes(node, {
+      images: node.gcbGallery,
+      name: 'projectGalleryFile',
+    })
+  }
+
+  // process news item images
+  if (node.internal.type === 'NewsYaml' && node.gcbImage) {
+    console.log('process news item image')
+    await createRemoteImageNode(node, {
+      image: node.gcbImage,
+      name: 'newsImageFile',
+    })
+  }
+
+  // process case study images
+  if (node.internal.type === 'CaseStudiesYaml' && node.sections) {
+    for (let section of node.sections) {
+      const id = hash(section)
+
+      if (section.gcbGallery) {
+        await createRemoteImageGalleryNodes(node, {
+          images: section.gcbGallery,
+          name: 'caseStudyGalleryFile',
+          customCreateNodeId: (index) => () => {
+            return `case-study-gallery__${id}-${index}`
+          },
+        })
+      }
+      if (section.gcbImage) {
+        await createRemoteImageNode(node, {
+          image: section.gcbImage,
+          name: 'caseStudyImageFile',
+          customCreateNodeId: () => {
+            return `case-study-image__${id}`
+          },
+        })
+      }
     }
   }
 }
@@ -148,11 +275,6 @@ exports.createPages = async ({graphql, actions}) => {
               }
               extension
               publicURL
-            }
-            coverImage {
-              childImageSharp {
-                gatsbyImageData(width: 1400, placeholder: BLURRED)
-              }
             }
             image {
               childImageSharp {

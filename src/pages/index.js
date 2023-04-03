@@ -24,54 +24,49 @@ const IndexPage = () => {
       }
     }
   })
-
   return (
     <ContentPage
       logoColor="black"
       headerBackgroundColor="eggshell"
       className={'home'}
       headerVisible={true}
-      render={({parent}) => (
-        <>
-          <SEO
-            title="Parts & Labour: Home"
-            keywords={[
-              `Parts`,
-              `Labour`,
-              `agency`,
-              `multi-platform`,
-              `nyc`,
-              `los angeles`,
-              `Toronto`,
-            ]}
-            description="A multi-platform content company based in LA NYC and Toronto"
+    >
+      <SEO
+        title="Parts & Labour: Home"
+        keywords={[
+          `Parts`,
+          `Labour`,
+          `agency`,
+          `multi-platform`,
+          `nyc`,
+          `los angeles`,
+          `Toronto`,
+        ]}
+        description="A multi-platform content company based in LA NYC and Toronto"
+      />
+      <div className="container splash-section__container">
+        <div className="splash-section">
+          <div className="home-splash">
+            <div className="pal-logo-animation">
+              <PalLogoAnim />
+            </div>
+            <div>
+              <div className="spacing spacing--medium line"></div>
+              <MissionStatement />
+              <div className="spacing spacing--medium line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container list-section">
+        <div className="list-section__projects">
+          <Projects
+            showProjects={true}
+            onRemoveProjects={() => this.setState({projectsRemoved: true})}
           />
-          <div className="container splash-section__container">
-            <div className="splash-section">
-              <div className="home-splash">
-                <div className="pal-logo-animation">
-                  <PalLogoAnim />
-                </div>
-                <div>
-                  <div className="spacing spacing--medium line"></div>
-                  <MissionStatement />
-                  <div className="spacing spacing--medium line"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="container list-section">
-            <div className="list-section__projects">
-              <Projects
-                root={parent}
-                showProjects={true}
-                onRemoveProjects={() => this.setState({projectsRemoved: true})}
-              />
-            </div>
-          </div>
-        </>
-      )}
-    />
+        </div>
+      </div>
+    </ContentPage>
   )
 }
 

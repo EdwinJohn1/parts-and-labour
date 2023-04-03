@@ -9,6 +9,7 @@ const Page = ({
   className,
   style,
   children,
+  ref,
 }) => {
   const {
     setForcedLogoColor,

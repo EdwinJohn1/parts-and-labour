@@ -5,10 +5,6 @@
   background: $eggshell;
   @include backgroundColors;
 
-  .tl-wrapper-status--entering & {
-    pointer-events: none;
-  }
-
   .footer {
     display: flex;
     align-items: center;

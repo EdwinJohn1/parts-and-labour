@@ -137,8 +137,7 @@ const VideoPanel = ({
     title,
     category,
     client,
-    cover,
-    billboard,
+    coverImage,
     creditName,
     creditSlug,
     year,
@@ -166,7 +165,7 @@ const VideoPanel = ({
         const director = directors.find(
           (director) => director.slug === creditSlug
         )
-        const coverImage = (cover || billboard)?.childImageSharp.fluid.src // || tempImage;
+
         return (
           <>
             <div

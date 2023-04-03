@@ -1,0 +1,24 @@
+client: LG
+title: No Hacemos
+slug: lg
+credit: Director
+creditName: Sepia
+creditSlug: sepia
+gcbImage: projects/lg/hero.jpg
+gcbImageSquare: projects/lg/square.jpg
+gcbGallery:
+  - projects/lg/gallery/1.jpg
+  - projects/lg/gallery/2.jpg
+  - projects/lg/gallery/3.jpg
+  - projects/lg/gallery/4.jpg
+  - projects/lg/gallery/5.jpg
+  - projects/lg/gallery/6.jpg
+clips:
+  - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/Sepia_LG.mp4
+video: http://thelodgevideos.akamaized.net/podium/S_LG.mp4
+synopsis: >-
+  It takes a true artist to see beauty in the everyday. It takes a true
+  engineer to suspend a banjo in mid-air. See both in this great ad for LG
+  directed by the inimitable Sepia.
+timecode: 00:00:45
+year: 2019

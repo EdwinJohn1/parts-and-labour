@@ -1,5 +1,5 @@
 import {graphql, Link, StaticQuery} from 'gatsby'
-import {GatsbyImage, getImage} from 'gatsby-plugin-image'
+import {GatsbyImage, getImage, StaticImage} from 'gatsby-plugin-image'
 
 import React from 'react'
 import {TransitionGroup} from 'react-transition-group'
@@ -41,6 +41,7 @@ const ProjectList = (props) => {
     preloadNext,
     openModal,
     closeModal,
+    staticImages,
     spacing = 'spacing--large',
   } = props
 
@@ -128,6 +129,7 @@ const ProjectList = (props) => {
               thinDivider={thinDivider}
               openModal={openModal}
               closeModal={closeModal}
+              staticImages={staticImages}
             />
           )
         }
@@ -195,6 +197,7 @@ const Project = ({
   root,
   openModal,
   closeModal,
+  staticImages,
 }) => {
   const {
     client: clientLong,
@@ -239,7 +242,7 @@ const Project = ({
     : gallery && gallery[0]
 
   const gatsbyImage = imageToUse && getImage(imageToUse)
-  console.log(gatsbyImage)
+
   const shouldUseTitleShort =
     isColumnLayout && !isColumnHero && !isGridLayout && titleShort
   const shouldUseClientShort =
@@ -390,7 +393,13 @@ const Project = ({
             neverTimeout={true}
             loop={true}
           />
+        ) : isImageMeta ? (
+          <img
+            srcSet={gatsbyImage.images.sources[0].srcSet}
+            src={gatsbyImage.placeholder.fallback}
+          />
         ) : (
+          // <GatsbyImage className="image" image={gatsbyImage} style={{}} />
           // <GatsbyImage className="image" image={gatsbyImage} />
           <img />
         )}

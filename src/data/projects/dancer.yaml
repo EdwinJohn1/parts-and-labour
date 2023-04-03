@@ -1,0 +1,24 @@
+client: Roberto Bolle
+title: Roberto Bolle
+slug: dancer
+credit: Director
+creditName: 'Devlin Prager'
+creditSlug: devlin-prager
+gcbImage: projects/dancer/hero.jpg
+gcbImageSquare: projects/dancer/square.jpg
+gcbGallery:
+  - projects/dancer/gallery/1.jpg
+  - projects/dancer/gallery/2.jpg
+  - projects/dancer/gallery/3.jpg
+  - projects/dancer/gallery/4.jpg
+  - projects/dancer/gallery/5.jpg
+  - projects/dancer/gallery/6.jpg
+clips:
+  - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/DP_Dancer.mp4
+video: http://thelodgevideos.akamaized.net/podium/DP_Dancer.mp4
+synopsis: >-
+  Symmetry is a magnet of human attraction… we’re hopelessly drawn to it – a
+  fact evident in Devlin Prager’s spellbinding film starring Italian dancer
+  Roberto Bolle, which garnered a coveted Rose D’Or at Cannes.
+timecode: 00:001:30
+year: 2018

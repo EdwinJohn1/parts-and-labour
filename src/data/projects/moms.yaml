@@ -1,0 +1,25 @@
+client: 'Direct Energy'
+title: 'New Moms'
+slug: moms
+credit: Director
+creditName: META
+creditSlug: meta-productions
+thumbnail: null
+video: http://thelodgevideos.akamaized.net/podium/MP_Direct Energy.mp4
+gcbGallery:
+  - projects/moms/gallery/1.jpg
+  - projects/moms/gallery/2.jpg
+  - projects/moms/gallery/3.jpg
+  - projects/moms/gallery/4.jpg
+  - projects/moms/gallery/5.jpg
+  - projects/moms/gallery/6.jpg
+clips:
+  - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/META_DirectEnergy.mp4
+gcbImage: projects/moms/hero.jpg
+gcbImageSquare: projects/moms/square.jpg
+synopsis: >-
+  META Productions produced the one minute spot intended as part of a PR
+  campaign that showcases the ups and downs of motherhood and the unrelenting
+  energy moms dedicate towards their kids for direct energy.
+timecode: 00:01:00
+year: 2017
