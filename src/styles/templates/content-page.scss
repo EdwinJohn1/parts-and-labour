@@ -64,12 +64,6 @@
 
   & > .content {
     height: 100vh;
-    overflow: hidden;
-
-    .tl-wrapper-status--entered & {
-      overflow: scroll;
-      -webkit-overflow-scrolling: touch;
-    }
   }
 
   // transition link wrapper class

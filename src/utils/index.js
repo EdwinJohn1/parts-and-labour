@@ -35,32 +35,18 @@ export const useIsInViewport = (
       }
       return setVisibility(percentage)
     }
-<<<<<<< HEAD
-
-    ;(parentRef || window).addEventListener('scroll', handleScroll)
-    handleScroll()
-    return () =>
-      (parentRef || window).removeEventListener('scroll', handleScroll)
-=======
     const target = parentRef || window
     target.addEventListener('scroll', handleScroll)
     handleScroll()
     return () => target.removeEventListener('scroll', handleScroll)
->>>>>>> feature/gatsby6
   }, [ref, parentRef, visibility, shouldLock, lock, whenInView])
 
   return visibility
 }
 
-<<<<<<< HEAD
-export const isMobile = function() {
-  var check = false
-  ;(function(a) {
-=======
 export const isMobile = function () {
   var check = false
   ;(function (a) {
->>>>>>> feature/gatsby6
     if (
       /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
         a
@@ -142,11 +128,7 @@ export const creditVerbsShort = {
 }
 
 export const addPlaceholderZeroes = (num, placeholders) => {
-<<<<<<< HEAD
-  const zeroes = [...Array(placeholders)].map(_i => '0').join('')
-=======
   const zeroes = [...Array(placeholders)].map((_i) => '0').join('')
->>>>>>> feature/gatsby6
   const diff = zeroes.length - String(num).length
   return diff > 0 ? zeroes.substr(0, diff) + String(num) : String(num)
 }
@@ -156,11 +138,7 @@ export const addPlaceholderZeroes = (num, placeholders) => {
  * Adapted from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat#reduce_concat_isArray_recursivity
  */
 if (!Array.prototype.flat) {
-<<<<<<< HEAD
-  Array.prototype.flat = function(depth) {
-=======
   Array.prototype.flat = function (depth) {
->>>>>>> feature/gatsby6
     'use strict'
 
     // If no depth is specified, default to 1
@@ -169,22 +147,14 @@ if (!Array.prototype.flat) {
     }
 
     // Recursively reduce sub-arrays to the specified depth
-<<<<<<< HEAD
-    var flatten = function(arr, depth) {
-=======
     var flatten = function (arr, depth) {
->>>>>>> feature/gatsby6
       // If depth is 0, return the array as-is
       if (depth < 1) {
         return arr.slice()
       }
 
       // Otherwise, concatenate into the parent array
-<<<<<<< HEAD
-      return arr.reduce(function(acc, val) {
-=======
       return arr.reduce(function (acc, val) {
->>>>>>> feature/gatsby6
         return acc.concat(Array.isArray(val) ? flatten(val, depth - 1) : val)
       }, [])
     }
@@ -197,11 +167,7 @@ export const splitTextByChar = (text, delimiter = ' ') => {
   return text ? text.split(delimiter) : []
 }
 
-<<<<<<< HEAD
-export const getCharArray = text =>
-=======
 export const getCharArray = (text) =>
->>>>>>> feature/gatsby6
   [...Array(text.length)].map((_char, i) => text.charAt(i))
 
 export const convertSplitIntoSpans = (
@@ -210,11 +176,7 @@ export const convertSplitIntoSpans = (
   addSpaces = false,
   replacements = []
 ) => {
-<<<<<<< HEAD
-  let spans = splitText.filter(string =>
-=======
   let spans = splitText.filter((string) =>
->>>>>>> feature/gatsby6
     removeSpaces ? string !== '' : string
   )
   if (spans.length === 1) {
@@ -249,13 +211,8 @@ export const convertSplitIntoSpans = (
   return spans
 }
 
-<<<<<<< HEAD
-export const onEnterHandler = callback => ({
-  onKeydown: e => {
-=======
 export const onEnterHandler = (callback) => ({
   onKeydown: (e) => {
->>>>>>> feature/gatsby6
     if (e.key == 'Enter') {
       callback()
     }

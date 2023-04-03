@@ -13,6 +13,7 @@
     flex: 1;
     display: flex;
     justify-content: center;
+    padding: 5vh 0;
 
     svg {
       height: 100%;
@@ -21,10 +22,6 @@
       min-height: 20vw;
     }
 
-  }
-
-  .splash-section {
-    height: calc(100vh - #{$header-height} - 16px);
   }
 
   .home-splash {
