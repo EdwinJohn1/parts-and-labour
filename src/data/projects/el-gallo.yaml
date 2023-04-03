@@ -1,0 +1,34 @@
+client: DAZN
+title: 'El Gallo'
+slug: el-gallo
+category: Short Film
+credit: Director
+creditName: 'Michael Medoway'
+creditSlug: mike-medoway
+synopsis: >-
+  EL GALLO TAKES US ON A VISCERAL JOURNEY THROUGH THE LIFE OF JUAN 'EL GALLO'
+  ESTRADA, THE FORMER FLYWEIGHT CHAMPION OF THE WORLD. WHILE TRAINING FOR A
+  SHOT AT ANOTHER TITLE, EL GALLO TAKES US BACK TO HIS CHILDHOOD FILLED WITH
+  LOSS AND TRAGEDY, OVERCOMING TREMENDOUS ODDS TO MAKE IT TO THE TOP OF THE
+  INTERNATIONAL BOXING WORLD.
+gcbImage: projects/elgallo/hero.jpg
+gcbImageSquare: projects/elgallo/square.jpg
+billboard: projects/elgallo/billboard.jpg
+gcbPoster: projects/elgallo/poster.jpg
+video: http://thelodgevideos.akamaized.net/podium/MM_DAZN.mp4
+clips:
+  - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/Medoway_El Gallo.mp4
+year: 2018
+month: 07
+day: 06
+timecode: 00:14:40
+gcbGallery:
+  - projects/elgallo/gallery/1.jpg
+  - projects/elgallo/gallery/2.jpg
+  - projects/elgallo/gallery/3.jpg
+  - projects/elgallo/gallery/4.jpg
+  - projects/elgallo/gallery/5.jpg
+partners:
+  - DAZN
+region: UNITED STATES / MEXICO
+language: VOST (vo)SPANISH (st)ENGLISH

@@ -1,0 +1,38 @@
+client: HBO, Droga 5
+clientShort: HBO
+title: 'Game of Thrones'
+titleShort: G.O.T.
+slug: got
+# TODO: REMOVE
+preview: Preview
+credit: Producer
+creditName: Parts & Labour
+creditSlug: josh-eady
+category: 360/VR
+synopsis: >-
+  IN THE LEAD UP TO THE FINAL SEASON OF GAME OF THRONES, DROGA5 AND HBO HAD
+  DEVELOPED THE IDEA OF A GLOBAL TREASURE HUNT THAT WOULD ALLOW THE MOST
+  RAVENOUS FAN BASE TO SEARCH THE CORNERS OF THE WORLD FOR THE IRON THRONE.
+gcbImage: projects/got/hero.jpg
+# TODO: REMOVE
+gcbImageSquare: projects/got/poster.jpg
+gcbPoster: projects/got/poster.jpg
+gcbGallery:
+  - projects/got/gallery/1.jpg
+  - projects/got/gallery/2.jpg
+  - projects/got/gallery/3.jpg
+  - projects/got/gallery/4.jpg
+  - projects/got/gallery/5.jpg
+  - projects/got/gallery/6.jpg
+galleryAspectRatio: film
+video: http://thelodgevideos.akamaized.net/podium/CB_ForTheThrone.mp4
+clips:
+  - http://thelodgevideos.akamaized.net/podium/sliders/got.mp4
+partners:
+  - HBO
+  - DROGA 5
+  - TOOL OF NA
+timecode: 00:04:00
+year: 2018
+month: 03
+day: 06

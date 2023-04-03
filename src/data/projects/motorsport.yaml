@@ -1,0 +1,30 @@
+client: 'Migos'
+title: Motorsport
+slug: motorsport
+credit: VFX
+creditName: META
+category: VFX
+creditSlug: meta-productions
+video: http://thelodgevideos.akamaized.net/podium/MP_Migos_CardiB_NickyMinaj-Motorsport.mp4
+clips:
+  - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/META_motorsport.mp4
+gcbImage: projects/motorsport/hero.jpg
+gcbImageSquare: projects/motorsport/square.jpg
+gcbPoster: projects/motorsport/poster.jpg
+gcbGallery:
+  - projects/motorsport/gallery/1.jpg
+  - projects/motorsport/gallery/2.jpg
+  - projects/motorsport/gallery/3.jpg
+  - projects/motorsport/gallery/4.jpg
+  - projects/motorsport/gallery/5.jpg
+  - projects/motorsport/gallery/6.jpg
+  - projects/motorsport/gallery/7.jpg
+galleryAspectRatio: film
+synopsis: >-
+  Shot in Miami, Florida John Cameron was the Visual Effects Supervisor of
+  the project that embraced a Blade Runner aesthetic for the green screen
+  studio shoot.
+timecode: 00:05:16
+year: 2019
+month: 02
+day: 04

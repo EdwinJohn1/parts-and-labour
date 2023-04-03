@@ -1,0 +1,33 @@
+slug: got
+title: >-
+  Game<span class="cursive-font bold normal-case">of</span>Thrones
+client: GOT, HBO
+year: 2019
+sections:
+  - title: Brand Identity
+    date: 2020-2021
+    location: LA, CA.
+    gcbImage: projects/got/poster.jpg
+    gcbGallery:
+      - projects/got/gallery/1.jpg
+      - projects/got/gallery/2.jpg
+      - projects/got/gallery/3.jpg
+      - projects/got/gallery/4.jpg
+      - projects/got/gallery/5.jpg
+      - projects/got/gallery/6.jpg
+  - title: Film Prod.
+    date: 2020-2021
+    location: LA, CA.
+    gcbImage: projects/got/poster.jpg
+  - title: Digital Design
+    date: 2020-2021
+    location: LA, CA.
+    gcbImage: projects/got/poster.jpg
+  - title: 360/VR
+    date: 2020-2021
+    location: LA, CA.
+    gcbImage: projects/got/poster.jpg
+  - title: VFX & Motion
+    date: 2020-2021
+    location: LA, CA.
+    gcbImage: projects/got/poster.jpg

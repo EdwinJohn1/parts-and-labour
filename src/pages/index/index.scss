@@ -1,0 +1,44 @@
+@import './../../styles/variables';
+
+
+.home {
+  position: relative;
+
+  .tl-wrapper-status--entering & {
+    // animation: fade-in 1s cubic-bezier(0, 0, 0, 1);
+    animation-fill-mode: backwards;
+  }
+
+  .pal-logo-animation {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+
+    svg {
+      height: 100%;
+      width: 100%;
+      max-height: calc((100vh - 7.46vw) - ((100vw - 32px) * 0.2237));
+      min-height: 20vw;
+    }
+
+  }
+
+  .splash-section {
+    height: calc(100vh - #{$header-height} - 16px);
+  }
+
+  .home-splash {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+
+  }
+
+  .list-section {
+    position: relative;
+    display: block;
+
+  }
+
+}

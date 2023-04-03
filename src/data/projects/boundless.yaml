@@ -1,0 +1,32 @@
+client: NBC, Amazon
+title: Boundless
+slug: boundless
+category: Series
+credit: Director
+creditName: 'Josh Eady'
+creditSlug: josh-eady
+gcbImage: projects/boundless/hero.jpg
+gcbPoster: projects/boundless/poster.jpg
+billboard: projects/boundless/billboard.jpg
+gcbGallery:
+  - projects/boundless/gallery/1.jpg
+  - projects/boundless/gallery/2.jpg
+  - projects/boundless/gallery/3.jpg
+  - projects/boundless/gallery/4.jpg
+  - projects/boundless/gallery/5.jpg
+  - projects/boundless/gallery/6.jpg
+video: http://thelodgevideos.akamaized.net/podium/JE_Boundless .mp4
+clips:
+  - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/JE_Boundless.mp4
+synopsis: >-
+  With the help of Fitbit, two endurance racers test the boundaries of their
+  physical endurance and their friendship as they travel around the globe
+  competing in a series of demanding races.
+partners:
+  - NBC
+  - ESQUIRE
+  - OUTSIDE
+  - FITBIT
+timecode: 00:44:00
+year: 2018
+month: 01

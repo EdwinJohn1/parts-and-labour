@@ -1,0 +1,76 @@
+@import './../../styles/mixins';
+@import './../../styles/variables';
+
+.marquee {
+
+    &__container {
+        display: block;
+        width: 100%;
+        justify-content: flex-start;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+        cursor: grab;
+        pointer-events: all;
+        .logos__logo {
+            user-select: none;
+            pointer-events: none
+        };
+
+    }
+
+    .logos {
+        font-size: $display-font-size;
+        width: 100%;
+
+        &__container {
+            display: flex;
+            position: relative;
+            white-space: nowrap;
+            width: auto;
+            align-items: stretch;
+
+            &.duplicate {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                transform: translateX(100%);
+            }
+        }
+        &__logo {
+            $width: 50%;
+            width: $width;
+            flex: 0 1 $width;
+
+            &__container {
+                width: 100%;
+                padding-top: 77%;
+                position: relative;
+                background: #e3e1d8;
+
+                img {
+                    @include center();
+                    max-width: 100%;
+                    max-height: 100%;
+                    object-fit: contain;
+                    mix-blend-mode: multiply;
+                }
+
+                &:after {
+                    content: '';
+                    @include full-width();
+                    width: 1px;
+                    left: initial;
+                    right: -0.5em;
+                    background: $black;
+                }
+            }
+        }
+
+        &__divider {
+            flex: 0 0 1px;
+            padding: 0 0.5em;
+        }
+    }
+}

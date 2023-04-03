@@ -1,0 +1,55 @@
+name: Devlin Prager
+role: Director
+slug: devlin-prager
+image: ../../images/about/devlin.jpg
+url: /talent/devlin-prager
+clips:
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Devlin/Devlin_1.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Devlin/Devlin_2.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Devlin/Devlin_3.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Devlin/Devlin_4.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Devlin/Devlin_5.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Devlin/Devlin_6.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Devlin/Devlin_7.mp4
+  - http://thelodgevideos.akamaized.net/podium/director-loops/directors-page/Devlin/Devlin_8.mp4
+first: Devlin
+last: Prager
+bio: >-
+  A native Italian and Clio award-winning director, Devlin’s approach mirrors that of his country’s famous art and fashion: pure, unadulterated taste with a reduction of unnecessary ingredients.
+
+awards:
+  - fields:
+      - style: bold
+        text: CLIO AWARDS ENTMT.
+      - style: standard
+        text: 2 GOLD, 2 SILVER, 1 Bronze
+  - fields:
+      - style: bold
+        text: PROMAXBDA
+      - style: italic
+        text: Global Excellence Award
+      - style: standard
+        text: MERIT
+  - fields:
+      - style: bold
+        text: PROMAXBDA
+      - style: italic
+        text: Award
+      - style: standard
+        text: 1 GRAND PRIX, 4 GOLD, 3 SILVER
+  - fields:
+      - style: bold
+        text: EBU CONNECT AWARD
+      - style: italic
+        text: Swiss
+      - style: standard
+        text: 4 GOLD
+  - fields:
+      - style: bold
+        text: ASFF AESTHETICA FILM FESTIVAL
+  - fields:
+      - style: bold
+        text: PIVI MUSIC VIDEO AWARD
+titles:
+  - Film Director
+  - Artist

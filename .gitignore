@@ -1,3 +1,14 @@
 node_modules/
 .cache/
 public
+<<<<<<< HEAD
+=======
+.env
+
+#google cloud bucket security credentials
+gcb-service-account-credentials.json
+
+#Mac filesystem
+.DS_Store
+>>>>>>> feature/gatsby6
+.DS_Store

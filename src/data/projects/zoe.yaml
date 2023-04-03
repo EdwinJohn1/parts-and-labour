@@ -1,0 +1,28 @@
+client: Gatorade, Nike
+title: Zoe
+slug: zoe
+category: Short Film
+credit: Director
+creditName: Sepia
+creditSlug: sepia
+gcbImage: projects/zoe/hero.jpg
+gcbImageSquare: projects/zoe/square.jpg
+gcbPoster: projects/zoe/poster.jpg
+gcbGallery:
+  - projects/zoe/gallery/1.jpg
+  - projects/zoe/gallery/2.jpg
+  - projects/zoe/gallery/3.jpg
+  - projects/zoe/gallery/4.jpg
+  - projects/zoe/gallery/5.jpg
+  - projects/zoe/gallery/6.jpg
+galleryAspectRatio: film
+clips:
+  - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/Sepia_Zoe.mp4
+video: http://thelodgevideos.akamaized.net/podium/S_Zoe_Ganas.mp4
+synopsis: >-
+  Life’s a puzzle best solved piece by piece in this vignette-rich music
+  video for Argentinian artist Zoe Gatusso by Sepia viewed almost 3 million
+  times on YouTube.
+timecode: 00:00:41
+year: 2019
+videoModal: true

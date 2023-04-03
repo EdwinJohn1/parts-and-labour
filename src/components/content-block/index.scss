@@ -1,0 +1,155 @@
+@import './../../styles/typography';
+@import './../../styles/variables';
+@import './../../styles/mixins';
+
+.content-block {
+  &.accordion {
+    .content-block__heading {
+      cursor: pointer;
+    }
+
+    .content-block__container {
+      overflow: hidden;
+      transition: height 0.5s cubic-bezier(0,0,0,1);
+    }
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    h1 {
+      flex: 1;
+    }
+
+    .expand-btn {
+      transition: transform 0.5s cubic-bezier(0,0,0,1);
+      &--collapsed {
+        transform: rotate(180deg);
+      }
+      img {
+        font-size: $display-font-size;
+        width: 1.25em;
+        height: auto;
+        margin: 0 28px;
+      }
+    }
+
+    .close {
+      @include close-button;
+      position: relative;
+      margin: 0;
+      transform: translateY(-0.1em);
+      &:before,
+      &:after {
+          background: black;
+      }
+    }
+  }
+
+
+  .content-block__heading {
+    h1 {
+      color: black;
+      &.alt {
+          font-family: 'HelveticaNeue', sans-serif;
+      }
+      margin-bottom: -0.085em;
+      margin-top: -0.035em;
+    }
+
+
+    .close {
+
+      &:before,
+      &:after {
+          background: black;
+      }
+    }
+  }
+  .content-block__content * {
+    color: black
+  }
+
+  p.display.responsive.justify a {
+    color: black;
+  }
+
+  &.inverted {
+    .content-block__heading {
+      h1 {
+        color: $eggshell;
+      }
+
+      .close {
+
+        &:before,
+        &:after {
+            background: $eggshell;
+        }
+      }
+    }
+    .content-block__content * {
+      color: $eggshell
+    }
+
+    p.display.responsive.justify a {
+      color: $eggshell;
+    }
+  }
+
+  p.display.responsive {
+    @extend .display-font;
+    margin: 0;
+    font-size: $display-font-size;
+    line-height: 0.824em;
+    letter-spacing: -0.028em;
+    margin-bottom: -0.06em;
+
+    > * {
+      line-height: 0;
+      margin-top: -1em;
+    }
+
+    &.full-reel {
+      margin-bottom: 0.35em;
+    }
+
+    &.justify {
+      a {
+        display: inline;
+        color: #000;
+        &:hover {
+          color: #606060;
+        }
+      }
+    }
+
+    &.smaller-font {
+      font-size: $display-font-small-size;
+    }
+
+    .cursive-font {
+      line-height: 0em;
+    }
+    .subscript {
+      line-height: 0em;
+    }
+    .superscript.cursive-font {
+      line-height: 0.9em;
+      transform: translateY(-100%);
+    }
+
+  }
+
+  .expand-spacing {
+    padding-top: 0.10em;
+  }
+}

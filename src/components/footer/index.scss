@@ -1,0 +1,149 @@
+@import './../../styles/mixins';
+@import './../../styles/typography';
+@import './../../styles/variables';
+
+.site-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 64px 0 16px;
+
+  .marquee {
+    margin-left: -32px;
+  }
+
+  .pal-logo {
+    width: 3.33vw;
+  }
+
+
+  &__content {
+    display: flex;
+    max-width: 100%;
+    flex: 1;
+    color: black;
+    align-items: flex-end;
+
+    @include width-under($breakpoint-tablet) {
+      flex-direction: column;
+      max-width: 100%;
+    }
+
+    p {
+      margin: 0;
+    }
+    h3 {
+      text-transform: uppercase;
+      font-size: 14px;
+      margin: 0 0 1em;
+    }
+
+    a {
+      font-weight: 400;
+      text-decoration: none;
+      color: black;
+    }
+
+    &__column {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      flex: 1;
+
+      &.column-left {
+        display: flex;
+        align-items: flex-start;
+
+        @include width-under($breakpoint-tablet) {
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 64px;
+        }
+      }
+
+      &.column-right {
+        display: flex;
+        align-items: flex-end;
+
+        @include width-under($breakpoint-tablet) {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .social {
+          display: flex;
+          flex-direction: column;
+          @include width-under(1240px) {
+            margin-left: 0px;
+          }
+
+          @include width-under($breakpoint-tablet) {
+            text-align: center;
+          }
+        }
+      }
+
+      &.column-center {
+        flex-direction: row;
+        justify-content: space-around;
+        flex: 1;
+      }
+    }
+  }
+
+  .company-info {
+    min-width: 460px;
+    @extend .body-font, .responsive;
+    margin-top: 3em;
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+
+      &.phone-number {
+        justify-content: flex-end;
+      }
+    }
+    p,
+    a {
+      @extend .body-font, .responsive;
+      line-height: 1em;
+    }
+    a {
+      // &:hover {
+      //   color: red;
+      // }
+    }
+    a.email-link {
+      flex: 1;
+      &--active {
+        // color: red;
+        // .span.responsive {
+        //   color: red;
+        // }
+      }
+
+    }
+    p.span {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+  }
+
+  &.inverted {
+    background: none;
+    .site-footer__content {
+      color: $white;
+      a {
+        color: white;
+      }
+      .pal-logo {
+        path {
+          fill: white;
+        }
+      }
+    }
+  }
+}
