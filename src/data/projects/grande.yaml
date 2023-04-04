@@ -7,7 +7,7 @@ category: VFX
 creditName: META
 creditSlug: meta-productions
 video: http://thelodgevideos.akamaized.net/podium/MP_ArianaGrande-Breathin.mp4
-gcbGallery:
+gcpGallery:
   - projects/grande/gallery/1.jpg
   - projects/grande/gallery/2.jpg
   - projects/grande/gallery/3.jpg
@@ -18,9 +18,9 @@ gcbGallery:
 # -http://thelodgevideos.akamaized.net/podium/sliders/breathe.mp4
 clips:
   - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/META_Breathn.mp4
-gcbImage: projects/grande/hero.jpg
-gcbImageSquare: projects/grande/square.jpg
-gcbPoster: projects/grande/poster.jpg
+gcpImage: projects/grande/hero.jpg
+gcpImageSquare: projects/grande/square.jpg
+gcpPoster: projects/grande/poster.jpg
 billboard: projects/grande/billboard.jpg
 synopsis: >-
   Ariana Grande is only 5’3”, but our acclaimed Visual FX guru John Cameron

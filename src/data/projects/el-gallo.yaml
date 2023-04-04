@@ -11,10 +11,10 @@ synopsis: >-
   SHOT AT ANOTHER TITLE, EL GALLO TAKES US BACK TO HIS CHILDHOOD FILLED WITH
   LOSS AND TRAGEDY, OVERCOMING TREMENDOUS ODDS TO MAKE IT TO THE TOP OF THE
   INTERNATIONAL BOXING WORLD.
-gcbImage: projects/elgallo/hero.jpg
-gcbImageSquare: projects/elgallo/square.jpg
+gcpImage: projects/elgallo/hero.jpg
+gcpImageSquare: projects/elgallo/square.jpg
 billboard: projects/elgallo/billboard.jpg
-gcbPoster: projects/elgallo/poster.jpg
+gcpPoster: projects/elgallo/poster.jpg
 video: http://thelodgevideos.akamaized.net/podium/MM_DAZN.mp4
 clips:
   - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/Medoway_El Gallo.mp4
@@ -22,7 +22,7 @@ year: 2018
 month: 07
 day: 06
 timecode: 00:14:40
-gcbGallery:
+gcpGallery:
   - projects/elgallo/gallery/1.jpg
   - projects/elgallo/gallery/2.jpg
   - projects/elgallo/gallery/3.jpg

@@ -5,10 +5,10 @@ category: Series
 credit: Director
 creditName: 'Josh Eady'
 creditSlug: josh-eady
-gcbImage: projects/boundless/hero.jpg
-gcbPoster: projects/boundless/poster.jpg
+gcpImage: projects/boundless/hero.jpg
+gcpPoster: projects/boundless/poster.jpg
 billboard: projects/boundless/billboard.jpg
-gcbGallery:
+gcpGallery:
   - projects/boundless/gallery/1.jpg
   - projects/boundless/gallery/2.jpg
   - projects/boundless/gallery/3.jpg

@@ -6,7 +6,7 @@ creditName: 'Amos Le Blanc'
 creditSlug: amos-leblanc
 video: http://thelodgevideos.akamaized.net/podium/AL_RunThis.mp4
 billboard: projects/runthis/billboard.jpg
-gcbGallery:
+gcpGallery:
   - projects/runthis/gallery/1.jpg
   - projects/runthis/gallery/2.jpg
   - projects/runthis/gallery/3.jpg
@@ -16,8 +16,8 @@ gcbGallery:
 preview: http://thelodgevideos.akamaized.net/podium/pal-clips/AL_run_this.mp4
 clips:
   - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/AL_run_this.mp4
-gcbImage: projects/runthis/hero.jpg
-gcbImageSquare: projects/runthis/square.jpg
+gcpImage: projects/runthis/hero.jpg
+gcpImageSquare: projects/runthis/square.jpg
 synopsis: >-
   Amos Leblanc’s masterpiece for music duo Thugli is so good you might think
   the soundtrack was created for the video. 40 million views on Youtube and

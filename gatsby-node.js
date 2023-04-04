@@ -7,10 +7,15 @@ require('dotenv').config({
   path: `.env`,
 })
 
-const projectId = process.env.GCB_ID
-const keyFilename = path.resolve(process.env.GCB_KEY_FILE)
-const bucket = process.env.GCB_BUCKET
-const storage = new Storage({projectId, keyFilename})
+const projectId = process.env.GCP_ID
+const bucket = process.env.GCP_BUCKET
+const storage = new Storage({
+  projectId,
+  credentials: {
+    client_email: process.env.GCP_CLIENT_EMAIL,
+    private_key: process.env.GCP_PRIVATE_KEY.split('\\n').join('\n'),
+  },
+})
 
 const getSignedUrl = async (file) => {
   const expiration = Date.now() + 1000 * 60 * 60 // default one-hour
@@ -34,7 +39,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
         image: {
           type: 'File',
           resolve: (source, args, context) => {
-            if (!source.gcbImage) return
+            if (!source.gcpImage) return
             const id = `case-study-image__${hash(source)}`
             return context.nodeModel.getNodeById({
               id,
@@ -45,9 +50,9 @@ exports.createSchemaCustomization = ({actions, schema}) => {
         gallery: {
           type: '[File]',
           resolve: (source, args, context) => {
-            if (!source.gcbGallery) return
+            if (!source.gcpGallery) return
             const galleryHash = hash(source)
-            const images = source.gcbGallery.map((_img, index) => {
+            const images = source.gcpGallery.map((_img, index) => {
               const id = `case-study-gallery__${galleryHash}-${index}`
               return context.nodeModel.getNodeById({
                 id,
@@ -64,12 +69,12 @@ exports.createSchemaCustomization = ({actions, schema}) => {
   createTypes([
     ...typeDefs,
     `type LogosYaml implements Node {
-      gcbImage: String
+      gcpImage: String
       image: File @link(from: "fields.logoImageFile")
     }
 
     type NewsYaml implements Node {
-      gcbImage: String
+      gcpImage: String
       image: File @link(from: "fields.newsImageFile")
     }
 
@@ -78,10 +83,10 @@ exports.createSchemaCustomization = ({actions, schema}) => {
     }
 
     type ProjectsYaml implements Node {
-      gcbImage: String
-      gcbPoster: String
-      gcbImageSquare: String
-      gcbGallery: [String]
+      gcpImage: String
+      gcpPoster: String
+      gcpImageSquare: String
+      gcpGallery: [String]
       image: File @link(from: "fields.projectImageFile")
       poster: File @link(from: "fields.projectPosterFile")
       gallery: [File] @link(from: "fields.projectGalleryFile")
@@ -155,55 +160,55 @@ exports.onCreateNode = async ({
     }
   }
   // process logo images
-  if (node.internal.type === 'LogosYaml' && node.gcbImage) {
+  if (node.internal.type === 'LogosYaml' && node.gcpImage) {
     console.log('process logo image')
     await createRemoteImageNode(node, {
-      image: node.gcbImage,
+      image: node.gcpImage,
       name: 'logoImageFile',
     })
   }
 
   // process project poster images
-  if (node.internal.type === 'ProjectsYaml' && node.gcbPoster) {
+  if (node.internal.type === 'ProjectsYaml' && node.gcpPoster) {
     console.log('process project poster image')
     await createRemoteImageNode(node, {
-      image: node.gcbPoster,
+      image: node.gcpPoster,
       name: 'projectPosterFile',
     })
   }
 
   // process project hero images
-  if (node.internal.type === 'ProjectsYaml' && node.gcbImage) {
+  if (node.internal.type === 'ProjectsYaml' && node.gcpImage) {
     console.log('process project hero image')
     await createRemoteImageNode(node, {
-      image: node.gcbImage,
+      image: node.gcpImage,
       name: 'projectImageFile',
     })
   }
 
   // process project square images
-  if (node.internal.type === 'ProjectsYaml' && node.gcbImageSquare) {
+  if (node.internal.type === 'ProjectsYaml' && node.gcpImageSquare) {
     console.log('process project square image')
     await createRemoteImageNode(node, {
-      image: node.gcbImageSquare,
+      image: node.gcpImageSquare,
       name: 'projectImageSquareFile',
     })
   }
 
   // process project gallery images
-  if (node.internal.type === 'ProjectsYaml' && node.gcbGallery) {
+  if (node.internal.type === 'ProjectsYaml' && node.gcpGallery) {
     console.log('process project gallery image')
     await createRemoteImageGalleryNodes(node, {
-      images: node.gcbGallery,
+      images: node.gcpGallery,
       name: 'projectGalleryFile',
     })
   }
 
   // process news item images
-  if (node.internal.type === 'NewsYaml' && node.gcbImage) {
+  if (node.internal.type === 'NewsYaml' && node.gcpImage) {
     console.log('process news item image')
     await createRemoteImageNode(node, {
-      image: node.gcbImage,
+      image: node.gcpImage,
       name: 'newsImageFile',
     })
   }
@@ -213,18 +218,18 @@ exports.onCreateNode = async ({
     for (let section of node.sections) {
       const id = hash(section)
 
-      if (section.gcbGallery) {
+      if (section.gcpGallery) {
         await createRemoteImageGalleryNodes(node, {
-          images: section.gcbGallery,
+          images: section.gcpGallery,
           name: 'caseStudyGalleryFile',
           customCreateNodeId: (index) => () => {
             return `case-study-gallery__${id}-${index}`
           },
         })
       }
-      if (section.gcbImage) {
+      if (section.gcpImage) {
         await createRemoteImageNode(node, {
-          image: section.gcbImage,
+          image: section.gcpImage,
           name: 'caseStudyImageFile',
           customCreateNodeId: () => {
             return `case-study-image__${id}`

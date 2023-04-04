@@ -5,10 +5,10 @@ category: Short Film
 credit: Director
 creditName: Sepia
 creditSlug: sepia
-gcbImage: projects/zoe/hero.jpg
-gcbImageSquare: projects/zoe/square.jpg
-gcbPoster: projects/zoe/poster.jpg
-gcbGallery:
+gcpImage: projects/zoe/hero.jpg
+gcpImageSquare: projects/zoe/square.jpg
+gcpPoster: projects/zoe/poster.jpg
+gcpGallery:
   - projects/zoe/gallery/1.jpg
   - projects/zoe/gallery/2.jpg
   - projects/zoe/gallery/3.jpg

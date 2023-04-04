@@ -4,9 +4,9 @@ slug: lg
 credit: Director
 creditName: Sepia
 creditSlug: sepia
-gcbImage: projects/lg/hero.jpg
-gcbImageSquare: projects/lg/square.jpg
-gcbGallery:
+gcpImage: projects/lg/hero.jpg
+gcpImageSquare: projects/lg/square.jpg
+gcpGallery:
   - projects/lg/gallery/1.jpg
   - projects/lg/gallery/2.jpg
   - projects/lg/gallery/3.jpg

@@ -4,9 +4,9 @@ slug: dancer
 credit: Director
 creditName: 'Devlin Prager'
 creditSlug: devlin-prager
-gcbImage: projects/dancer/hero.jpg
-gcbImageSquare: projects/dancer/square.jpg
-gcbGallery:
+gcpImage: projects/dancer/hero.jpg
+gcpImageSquare: projects/dancer/square.jpg
+gcpGallery:
   - projects/dancer/gallery/1.jpg
   - projects/dancer/gallery/2.jpg
   - projects/dancer/gallery/3.jpg

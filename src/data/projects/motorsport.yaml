@@ -8,10 +8,10 @@ creditSlug: meta-productions
 video: http://thelodgevideos.akamaized.net/podium/MP_Migos_CardiB_NickyMinaj-Motorsport.mp4
 clips:
   - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/META_motorsport.mp4
-gcbImage: projects/motorsport/hero.jpg
-gcbImageSquare: projects/motorsport/square.jpg
-gcbPoster: projects/motorsport/poster.jpg
-gcbGallery:
+gcpImage: projects/motorsport/hero.jpg
+gcpImageSquare: projects/motorsport/square.jpg
+gcpPoster: projects/motorsport/poster.jpg
+gcpGallery:
   - projects/motorsport/gallery/1.jpg
   - projects/motorsport/gallery/2.jpg
   - projects/motorsport/gallery/3.jpg

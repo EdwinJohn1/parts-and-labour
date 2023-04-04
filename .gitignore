@@ -4,7 +4,7 @@ public
 .env
 
 #google cloud bucket security credentials
-gcb-service-account-credentials.json
+gcp-service-account-credentials.json
 
 #Mac filesystem
 .DS_Store

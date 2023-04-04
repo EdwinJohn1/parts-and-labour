@@ -5,8 +5,8 @@ category: Film
 credit: Producer
 creditName: 'Jeff Spriet'
 video: http://thelodgevideos.akamaized.net/podium/JS_NBN.mp4
-gcbPoster: projects/nbn/poster.jpg
-gcbGallery:
+gcpPoster: projects/nbn/poster.jpg
+gcpGallery:
   - projects/nbn/gallery/1.jpg
   - projects/nbn/gallery/2.jpg
   - projects/nbn/gallery/3.jpg
