@@ -36,9 +36,9 @@ export const useIsInViewport = (
       return setVisibility(percentage)
     }
     const target = parentRef || window
-    target.addEventListener('scroll', handleScroll)
+    target?.addEventListener('scroll', handleScroll)
     handleScroll()
-    return () => target.removeEventListener('scroll', handleScroll)
+    return () => target?.removeEventListener('scroll', handleScroll)
   }, [ref, parentRef, visibility, shouldLock, lock, whenInView])
 
   return visibility
