@@ -11,7 +11,7 @@ import SEO from '../../elements/seo'
 const CaseStudiesPage = () => {
   const {caseStudies, content} = useStaticQuery(graphql`
     query {
-      content: pagesYaml(id: {eq: "case-studies"}) {
+      content: pagesYaml(yamlId: {eq: "case-studies"}) {
         summary
       }
       caseStudies: allCaseStudiesYaml {
@@ -57,7 +57,7 @@ const CaseStudiesPage = () => {
         <Reel />
         <div className="spacing line spacing--medium" />
       </div> */}
-      <CaseStudies caseStudies={caseStudies} />
+      <CaseStudies caseStudies={caseStudies.edges.map(({node}) => node)} />
       <Footer />
     </ContentPage>
   )
