@@ -1,7 +1,8 @@
 import React, {useEffect, useRef, useState} from 'react'
+import {isInBrowser} from '../../utils'
 import './index.scss'
 
-if (typeof window !== `undefined`) {
+if (isInBrowser) {
   // from https://stackoverflow.com/a/31196707
   Object.defineProperty(HTMLMediaElement.prototype, 'playing', {
     get: function () {

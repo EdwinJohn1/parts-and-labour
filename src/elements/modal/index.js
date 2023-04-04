@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import ReactDOM from 'react-dom'
+import {isInBrowser} from '../../utils'
 
 import './index.scss'
 
@@ -13,7 +14,7 @@ const Modal = ({
 }) => {
   const [portalRoot, setPortalRoot] = useState()
   useEffect(() => {
-    if (typeof document !== `undefined`) {
+    if (isInBrowser) {
       setPortalRoot(document.querySelector(modalRoot || '#modal-container'))
     }
   }, [modalRoot])

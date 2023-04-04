@@ -5,9 +5,11 @@ import Projects from '../components/projects'
 import SEO from '../elements/seo'
 import ContentPage from '../templates/content-page'
 import './index/index.scss'
+import {isInBrowser} from '../utils'
 
 const IndexPage = () => {
   useState(() => {
+    if (!isInBrowser) return
     const headerLogo = document.querySelector('.site-header #desktop-logo')
     if (headerLogo) {
       const resetPage = (e) => {

@@ -60,6 +60,8 @@ export const isMobile = function () {
   return check
 }
 
+export const isInBrowser = typeof window !== 'undefined'
+
 export const isSmallScreen = () => {
   return typeof window !== `undefined` && window.innerWidth <= 736
 }
