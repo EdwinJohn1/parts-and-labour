@@ -1,5 +1,5 @@
 import React from 'react'
-import {useIsInViewport} from '../../utils'
+import {isInBrowser, useIsInViewport} from '../../utils'
 
 export const InViewWrapper = (props) => {
   const ref = React.useRef()
@@ -13,7 +13,7 @@ export const InViewWrapper = (props) => {
 
   const isInViewPort = useIsInViewport(
     ref?.current,
-    props.root || window,
+    props.root || (isInBrowser ?? window),
     {min: props.min, max: props.max},
     props.lock,
     props.whenInView

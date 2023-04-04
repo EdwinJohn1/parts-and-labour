@@ -1,4 +1,5 @@
 import React, {useRef, useEffect, useState} from 'react'
+import {isInBrowser} from '../../utils'
 import './index.scss'
 
 const ProgressiveVideo = ({
@@ -18,8 +19,9 @@ const ProgressiveVideo = ({
   const [hasLoaded, setHasLoaded] = useState(false)
 
   useEffect(() => {
+    if (isInBrowser) return
     let connectionType
-    if (window && window.navigator && window.navigator.connection) {
+    if (window.navigator && window.navigator.connection) {
       connectionType = window.navigator.connection.effectiveType
     }
 
