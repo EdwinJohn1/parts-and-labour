@@ -88,6 +88,8 @@ const Project = (props) => {
     ),
   ]
 
+  const directorExists = director && director !== ''
+
   return (
     <div>
       <div
@@ -103,7 +105,7 @@ const Project = (props) => {
               inverted={isDark}
             />
           )}
-          {!onClose && director && (
+          {!onClose && directorExists && (
             <DirectorHeader
               director={director}
               headline={title}
@@ -147,38 +149,42 @@ const Project = (props) => {
           </div>
         )}
 
-        <DirectorHeader
-          director={director}
-          linkToBio={true}
-          subheadline={`
+        {directorExists && (
+          <div>
+            <DirectorHeader
+              director={director}
+              linkToBio={true}
+              subheadline={`
               <span class="bold">${director.name}</span>
               <span> | Showreel</span>
             `}
-        />
+            />
 
-        <div className="spacing spacing--tiny" />
-        <ContentBlock
-          isDark={isDark}
-          summary={`
+            <div className="spacing spacing--tiny" />
+            <ContentBlock
+              isDark={isDark}
+              summary={`
               Check below <span class="subscript">and</span> <span class="standard bold">D I S C O V E R</span>
               ${
                 director.first || director.name
               }’s latest <span class="cursive-font bold normal-case">Work</span>
               <span class="subscript">and</span> <span class="cursive-font bold normal-case">Achievements</span>.
             `}
-          noJustify
-        />
-        <div className="spacing spacing--tiny" />
-        <div className="spacing line spacing--small no-bottom" />
-        <SectionTitle title={`${director.name}, ${allRoles.join('/')}`} />
+              noJustify
+            />
+            <div className="spacing spacing--tiny" />
+            <div className="spacing line spacing--small no-bottom" />
+            <SectionTitle title={`${director.name}, ${allRoles.join('/')}`} />
 
-        <ProjectList
-          projects={relatedProjects}
-          layoutType="grid"
-          metaType="square"
-          inverted={isDark}
-          dividerBottom
-        />
+            <ProjectList
+              projects={relatedProjects}
+              layoutType="grid"
+              metaType="square"
+              inverted={isDark}
+              dividerBottom
+            />
+          </div>
+        )}
         {/*
         <div
           className="project__images"
