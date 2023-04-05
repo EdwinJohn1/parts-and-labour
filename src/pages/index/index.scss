@@ -4,32 +4,30 @@
 .home {
   position: relative;
 
-  .tl-wrapper-status--entering & {
-    // animation: fade-in 1s cubic-bezier(0, 0, 0, 1);
-    animation-fill-mode: backwards;
-  }
-
-  .pal-logo-animation {
-    flex: 1;
+  .pal-logo-anim {
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
     padding: 5vh 0;
 
-    svg {
-      height: 100%;
-      width: 100%;
-      max-height: calc((100vh - 7.46vw) - ((100vw - 32px) * 0.2237));
-      min-height: 20vw;
-    }
+      // max-height: calc((100vh - 7.46vw) - ((100vw - 32px) * 0.2237));
+      min-height: 30vh;
 
   }
 
   .home-splash {
-    height: 100%;
+    max-height: calc(100vh - #{$header-height} - 16px);
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
     // justify-content: space-between;
 
+  }
+
+  .mission-statement {
+    width: 100%;
   }
 
   .list-section {

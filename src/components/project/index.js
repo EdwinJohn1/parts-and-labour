@@ -7,26 +7,24 @@ import withModal from '../../hooks/with-modal'
 import {getCreditText} from '../../utils'
 import ContentBlock from '../content-block'
 import TitleBackButton from '../title-back-button'
-import TransitionElement from '../../elements/transition-element'
+import VideoClips from '../video-clips'
+import SectionTitle from '../section-title'
+import ProjectList from '../project-list'
 import './index.scss'
-import {GatsbyImage, getImage} from 'gatsby-plugin-image'
-
-const aspectRatios = {
-  film: '2.39 / 1',
-  widescreen: '16 / 9',
-  fullscreen: '4 / 3',
-}
 
 const Project = (props) => {
   const {
     root,
     content,
+    director,
+    relatedProjects,
     openModal,
     closeModal,
     includeFooter,
     type,
     videos,
     onClose,
+    modalActive,
     isDark,
     hideDirector,
   } = props
@@ -54,7 +52,6 @@ const Project = (props) => {
     : [
         {
           src: video,
-          clips: clips,
           client,
           title,
           credit,
@@ -79,21 +76,17 @@ const Project = (props) => {
   const creditText = getCreditText(credit, creditName)
   const aspectRatio = galleryAspectRatio || 'widescreen'
 
-  const {directors} = useStaticQuery(graphql`
-    query {
-      directors: allDirectorsYaml {
-        edges {
-          node {
-            ...director
-          }
-        }
-      }
-    }
-  `)
-
-  const director = directors.edges
-    .map(({node}) => node)
-    .find((node) => node.slug === creditSlug)
+  const rolesByCredit = {
+    producer: 'Producing',
+    director: 'Direction',
+  }
+  const allRoles = [
+    ...new Set(
+      relatedProjects.map(({credit}) => {
+        return rolesByCredit[credit.toLowerCase()] || credit
+      })
+    ),
+  ]
 
   return (
     <div>
@@ -114,9 +107,14 @@ const Project = (props) => {
             <DirectorHeader
               director={director}
               headline={title}
-              subheadline={`${
-                (credit || category) && (credit || category) + ' | '
-              }${director.name}`}
+              subheadline={`
+                  <span class="bold">${director.name}</span>
+                  ${
+                    (credit || category) &&
+                    `<span> | ${credit || category}</span>`
+                  }
+                `}
+              linkToBio={false}
             />
           )}
 
@@ -127,10 +125,61 @@ const Project = (props) => {
             linkText={!hideDirector && `{ ${creditName}'s Reel }`}
             smallerFont
             smallSpacing
-            divider={true}
+            noJustify
+            divider={!clips}
           />
         </div>
 
+        {clips && (
+          <div
+            className="project__reel"
+            onClick={() => openModal(ModalComponent)}
+            onKeyDown={(e) => {
+              if ((e.key = 'Enter')) {
+                openModal(ModalComponent)
+              }
+            }}
+            tabIndex="0"
+          >
+            <div className="spacing line spacing--small spacing-bottom--large"></div>
+            <VideoClips videos={clips} isActive={!modalActive} />
+            <div className="spacing spacing--small no-top"></div>
+          </div>
+        )}
+
+        <DirectorHeader
+          director={director}
+          linkToBio={true}
+          subheadline={`
+              <span class="bold">${director.name}</span>
+              <span> | Showreel</span>
+            `}
+        />
+
+        <div className="spacing spacing--tiny" />
+        <ContentBlock
+          isDark={isDark}
+          summary={`
+              Check below <span class="subscript">and</span> <span class="standard bold">D I S C O V E R</span>
+              ${
+                director.first || director.name
+              }’s latest <span class="cursive-font bold normal-case">Work</span>
+              <span class="subscript">and</span> <span class="cursive-font bold normal-case">Achievements</span>.
+            `}
+          noJustify
+        />
+        <div className="spacing spacing--tiny" />
+        <div className="spacing line spacing--small no-bottom" />
+        <SectionTitle title={`${director.name}, ${allRoles.join('/')}`} />
+
+        <ProjectList
+          projects={relatedProjects}
+          layoutType="grid"
+          metaType="square"
+          inverted={isDark}
+          dividerBottom
+        />
+        {/*
         <div
           className="project__images"
           onClick={() => openModal(ModalComponent)}
@@ -162,13 +211,7 @@ const Project = (props) => {
                     root={root}
                     triggerOnce={true}
                   >
-                    {/* <GatsbyImage image={gatsbyImage} /> */}
-                    <img
-                      style={{
-                        aspectRatio: aspectRatios[aspectRatio],
-                      }}
-                      // src={image.childImageSharp.fluid.src}
-                    />
+                     <GatsbyImage image={gatsbyImage} />
                     <div
                       className={`spacing spacing-medium${
                         i === gallery.length - 1 ? '' : ' no-top'
@@ -178,7 +221,7 @@ const Project = (props) => {
                 </div>
               )
             })}
-        </div>
+        </div> */}
         {includeFooter && <Footer inverted={isDark} />}
       </div>
     </div>

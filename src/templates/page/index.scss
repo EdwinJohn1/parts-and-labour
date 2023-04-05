@@ -3,6 +3,7 @@
 
 .page {
   background: $eggshell;
+  min-height: 100svh;
   @include backgroundColors;
 
   .footer {

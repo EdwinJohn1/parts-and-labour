@@ -1,0 +1,176 @@
+id: studio
+title: About Us
+summary: >-
+  Parts are the <span class="cursive-font bold normal-case">Tools</span> &
+  LABOUR IS THE <span class="standard">‘Know How’</span> – A
+  <span class="standard bold">Fully Integrated</span>, content company
+  <span class="subscript">to</span> seamlessly
+  <span class="cursive-font bold normal-case">Blend</span> art and commerce
+  <span class="subscript">for</span> our clients.
+sections:
+  - title: >-
+      Impetus
+    summary: >-
+      <span class="cursive-font bold normal-case">The</span> market is moving too <i><span class="bold">f a s t</span></i> for middlemen, and so <span class="bold">advertisers</span> are forging <span class="bold">relationships</span> directly with content companies that can
+      Help them produce <span class="standard">‘Relevant content’</span><br/>
+      <span class="cursive-font bold normal-case">In</span> record time ACROSS ALL PLATFORMS – <span class="cursive-font bold normal-case">Including</span> THE NEVER-QUENCHED THIRST FOR IMMEDIATE / CONSUMABLE STORIES (INSTAGRAM, TIKTOK ETC.).</br></br>
+
+      P&L’s broad array of services allows us to provide a more <span class="standard">‘comprehensive partnership’</span><br/>
+      <span class="cursive-font bold normal-case">To</span> our clients and serves <span class="cursive-font bold normal-case">To</span> greatly increase revenue from both <span class="bold">advertisers</span> and <span class="bold">smaller agencies</span> that lack the scale <span class="cursive-font bold normal-case">To</span> cover emerging <span class="bold">t e c h n o l o g i e s</span>.
+
+  - title: >-
+      How we play
+    summary: >-
+      Before P&L and companies like us existed, <span class="standard">broadcast content</span> was divided into short-form<br/>
+      ( commercials ), digital ( social, we ) and long-form content ( films, docs etc. ) as they <br/><span class="bold">r e q u i r e</span> different brands <span class="cursive-font bold normal-case">Of</span> storytelling.<br/><br/>
+      <span class="cursive-font bold normal-case">But</span> now that we are living in a more ‘media fluid’ world, the definition of a <span class="bold">c o m m e r c i a l</span> and where it may appear has <span class="standard">changed radically</span>.<br/><br/>
+
+      The advertisers of today need production partners that are equally fluid and capable of creating engaging content in multiple arenas.
+
+  - title: >-
+      Who we are
+    profiles:
+      - initials: JE
+        name: Joshua Eady
+        title: >-
+          Partner and President.
+        bio: >-
+          <span class="bold">Joshua Eady</span> is An 8 x clio, 2 x webby and Cannes titanium contender
+          award winning producer and director; After co-founding LifeCapture
+          Media and creating digital/content programs for the likes of Toyota,
+          Unilever, Nike, Roots and Adidas, Josh sold the company to Venture
+          Communications and set his sights on Los Angeles and creating
+          broadcast content.<br /><br />
+
+          Josh’s first effort, ‘Boundless’ for NBC ran THREE seasons and spawned
+          a development deal with ICM Partners and WME which has kept him busy
+          as an Executive Producer on projects for Food Network, RedBull, HBO and
+          NBC.<br /><br />
+
+          With the creation of <span class="bold">Parts & Labour</span>, Josh is excited to return to his
+          roots in the Branded Content and commercial arenas.
+        location: Los Angeles, CA.
+        image: '../../images/profiles/josh.jpg'
+      - initials: AI
+        name: Alexis Iverson
+        title: >-
+          LA, CA. Partner and Producer
+        bio: >-
+          The high-pressure fashion world was a perfect training ground for <span className="bold">Alexis’</span> transition into producing. <br /><br />
+
+          A former staffer for such labels as Louis Vuitton, Burberry, DVF and Rebecca Minkoff, Alexis moved to consulting on wardrobe for commercial shoots (State Farm, Shopify) and eventually full-blown producing work (BMW, Gatorade). <br /><br />
+
+          When not wrangling people on set, <span className="bold">Alexis</span> wrangles her busy
+          daughter, Pen.
+        location: Los Angeles, CA.
+        image: '../../images/profiles/alexis.jpg'
+      - initials: JC
+        name: John Cameron
+        title: >-
+          NYC. Post-Prod. & <br/> VFX
+        bio: >-
+          <span class="bold">John Cameron</span> is AN <span class="italic">EMMY AWARD WINNING</span> PRODUCER, DIRECTOR AND VISUAL EFFECTS SUPERVISOR IN TV AND VIDEO PRODUCTION WITH OVER 20 YEARS EXPERIENCE WITHIN THE INDUSTRY. WORKING WITH INTERNATIONAL TEAMS, JOHN DELIVERS THROUGH PLATFORMS OF TELEVISION, FILM, MOTION GRAPHICS, VISUAL EFFECTS, INTERACTIVE VIDEOS, ONLINE AND MOBILE/TABLET APPLICATIONS. JOHN HAS RECEIVED BOTH LOCAL AND INTERNATIONAL RECOGNITION INCLUDING AN EMMY AWARD FOR WORK WITH ESPN AND MULTIPLE AWARDS FOR WORK IN LAUNCHING
+          TWO NATIONAL TELEVISION NETWORKS.<br /><br />
+
+          OVER THE SPAN OF HIS CAREER <span className="bold">JOHN</span> HAS BEEN A KEY COMPONENT OF CLIENT RELATIONS WITH A BROAD RANGE OF NATIONAL AND INTERNATIONAL CLIENTS INCLUDING APPLE TV+, HBO, NETFLIX, MGM, CAPITOL RECORDS, ABC, ESPN, DISNEY, DISNEY JR., FAMILY CHANNEL, CBC, ASTRAL, MOVIE CENTRAL, GLOBAL, SLICE, STAR CHOICE, STAR ALLIANCE, OMNI.
+        location: New York, NYC.
+        image: '../../images/profiles/john.jpg'
+      - initials: QE
+        name: Quatrième Étage
+        title: >-
+          FR. Creative & Art Directors
+        bio: >-
+          <span className="bold">QUATRIÈME ÉTAGE</span> IS THE COLLABORATIVE DESIGN PRACTICE OF OPHÉLIE RAYNAUD (TOULOUSE, FR) AND VALENTIN PORTE (PARIS, FR). TOGETHER THEY OFFER CREATIVE AND ART DIRECTION, VISUAL IDENTITY, GRAPHIC DESIGN AND WEBSITE DESIGN - SUPPORTING A WIDE RANGE OF MARKETS AND INDUSTRIES.<br /><br />
+
+          <span className="bold">QUATRIÈME ÉTAGE</span> ARE ALSO KNOWN TO EXPERIMENT AND INSPIRE THROUGH SELF-INITIATED VISUAL DESIGN PROJECTS.
+        location: TOULOUSE-PARIS, FR.
+        image: '../../images/profiles/QE.jpg'
+
+  - title: >-
+      Our Clients
+    # summary: >-
+    #   OUR <span class="standard bold">C O M P A N Y</span> IS KNOWN FOR <br />
+    #   PRODUCING <span class="standard">‘AWARD-WINNING’</span> CONTENT <br />
+    #   FOR SUCH <span class="cursive-font bold normal-case">Brands</span> AS NIKE, GATORADE, <br />
+    #   NBC, DAZN, LEXUS, SAPPORO, HBO, <br />
+    #   AMAZON, DIRECT ENERGY, GAME OF <br />
+    #   THRONES, LG, SHOPIFY, TIGER BEER, <br />
+    #   ZAPPOS, ARIANA GRANDE <span class="subscript">and</span> MIGOS.
+    sectionTitle:
+      title: Brands
+    brands:
+      - ../../images/logos/clients/bmw.png
+      - ../../images/logos/clients/shopify.png
+      - ../../images/logos/clients/lg.png
+      - ../../images/logos/clients/wme.png
+      - ../../images/logos/clients/nbc.png
+      - ../../images/logos/clients/zappos.png
+      - ../../images/logos/clients/esquire.png
+      - ../../images/logos/clients/north-face.png
+      - ../../images/logos/clients/nike.png
+      - ../../images/logos/clients/hbo.png
+      - ../../images/logos/clients/fortnite.png
+      - ../../images/logos/clients/dazn.png
+      - ../../images/logos/clients/outside.png
+      - ../../images/logos/clients/gatorade.png
+      - ../../images/logos/clients/icm.png
+
+  - title: >-
+      Awards
+    sectionTitle:
+      heading: 2016-2021
+      title: Selected Awards
+    awards:
+      - name: FWA
+        image: '../../images/logos/awards/01_fwa.png'
+        years:
+          - occurance: 2
+            year: 2017
+      - name: MMVA
+        image: '../../images/logos/awards/02_mma.png'
+        years:
+          - occurance: 1
+            year: 2016
+          - occurance: 2
+            year: 2019
+      - name: D&DA
+        image: '../../images/logos/awards/03_d&da.png'
+        years:
+          - occurance: 2
+            year: 2018
+      - name: CSA
+        image: '../../images/logos/awards/04_csa.png'
+        years:
+          - occurance: 1
+            year: 2017
+      - name: Lion
+        image: '../../images/logos/awards/05_cannes.png'
+        years:
+          - occurance: 3
+            year: 2020
+      - name: One Awards
+        image: '../../images/logos/awards/06_one.png'
+        years:
+          - occurance: 2
+            year: 2020
+          - occurance: 1
+            year: 2021
+      - name: Emmy Awards
+        image: '../../images/logos/awards/07_atas.png'
+        years:
+          - occurance: 1
+            year: 2017
+      - name: Webby Awards
+        image: '../../images/logos/awards/08_webby.png'
+        years:
+          - occurance: 3
+            year: 2020
+      - name: Gemini Awards
+        image: '../../images/logos/awards/09_gemini.png'
+        years:
+          - occurance: 1
+            year: 2010
+          - occurance: 1
+            year: 2011
+          - occurance: 1
+            year: 2012

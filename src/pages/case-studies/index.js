@@ -9,17 +9,44 @@ import Footer from '../../components/footer'
 import SEO from '../../elements/seo'
 
 const CaseStudiesPage = () => {
-  const {caseStudies, content} = useStaticQuery(graphql`
+  const {
+    content,
+    bmwCaseStudy,
+    gotCaseStudy,
+    amazonCaseStudy,
+    buddyCaseStudy,
+    bniceCaseStudy,
+    twelveCaseStudy,
+    mlfpCaseStudy,
+    penCaseStudy,
+  } = useStaticQuery(graphql`
     query {
       content: pagesYaml(yamlId: {eq: "case-studies"}) {
         summary
       }
-      caseStudies: allCaseStudiesYaml {
-        edges {
-          node {
-            ...caseStudy
-          }
-        }
+      bmwCaseStudy: caseStudiesYaml(slug: {eq: "bmw"}) {
+        ...caseStudy
+      }
+      gotCaseStudy: caseStudiesYaml(slug: {eq: "got"}) {
+        ...caseStudy
+      }
+      amazonCaseStudy: caseStudiesYaml(slug: {eq: "amazon"}) {
+        ...caseStudy
+      }
+      buddyCaseStudy: caseStudiesYaml(slug: {eq: "buddy"}) {
+        ...caseStudy
+      }
+      bniceCaseStudy: caseStudiesYaml(slug: {eq: "bnice"}) {
+        ...caseStudy
+      }
+      twelveCaseStudy: caseStudiesYaml(slug: {eq: "twelve"}) {
+        ...caseStudy
+      }
+      mlfpCaseStudy: caseStudiesYaml(slug: {eq: "mlfp"}) {
+        ...caseStudy
+      }
+      penCaseStudy: caseStudiesYaml(slug: {eq: "pen"}) {
+        ...caseStudy
       }
     }
   `)
@@ -52,12 +79,19 @@ const CaseStudiesPage = () => {
         noPeriodSpace
       />
       <div className="spacing line small spacing--medium" />
-      {/*
-      <div style={{display: 'block', width: '100%'}}>
-        <Reel />
-        <div className="spacing line spacing--medium" />
-      </div> */}
-      <CaseStudies caseStudies={caseStudies.edges.map(({node}) => node)} />
+
+      <CaseStudies
+        caseStudies={[
+          bmwCaseStudy,
+          gotCaseStudy,
+          amazonCaseStudy,
+          buddyCaseStudy,
+          bniceCaseStudy,
+          twelveCaseStudy,
+          mlfpCaseStudy,
+          penCaseStudy,
+        ]}
+      />
       <Footer />
     </ContentPage>
   )

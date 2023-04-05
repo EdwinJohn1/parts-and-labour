@@ -24,10 +24,22 @@ const CaseStudies = ({caseStudies}) => {
               accordion
               persistAccordionContent
             >
-              {caseStudy.sections.map((section) => {
-                return <CaseStudySection data={section} />
+              {caseStudy.sections.map((section, i) => {
+                return (
+                  <>
+                    {i === 0 && (
+                      <div className={`spacing spacing--small no-bottom`} />
+                    )}
+                    <CaseStudySection data={section} />
+                    <div
+                      className={`spacing line spacing ${
+                        i === caseStudy.sections.length - 1 &&
+                        'spacing-bottom--small'
+                      }`}
+                    />
+                  </>
+                )
               })}
-              <div className="spacing line spacing-top--medium" />
             </ContentBlock>
           </TransitionElement>
         )

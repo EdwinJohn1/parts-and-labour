@@ -51,4 +51,10 @@
       }
     }
   }
+
+  h2.heading-1--size-3 {
+    > span {
+      line-height: 0;
+    }
+  }
 }

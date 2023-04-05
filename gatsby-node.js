@@ -68,11 +68,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
 
   createTypes([
     ...typeDefs,
-    `type LogosYaml implements Node {
-      gcpImage: String
-      image: File @link(from: "fields.logoImageFile")
-    }
-
+    `
     type NewsYaml implements Node {
       gcpImage: String
       image: File @link(from: "fields.newsImageFile")
@@ -160,13 +156,13 @@ exports.onCreateNode = async ({
     }
   }
   // process logo images
-  if (node.internal.type === 'LogosYaml' && node.gcpImage) {
-    console.log('process logo image')
-    await createRemoteImageNode(node, {
-      image: node.gcpImage,
-      name: 'logoImageFile',
-    })
-  }
+  // if (node.internal.type === 'LogosYaml' && node.gcpImage) {
+  //   console.log('process logo image')
+  //   await createRemoteImageNode(node, {
+  //     image: node.gcpImage,
+  //     name: 'logoImageFile',
+  //   })
+  // }
 
   // process project poster images
   if (node.internal.type === 'ProjectsYaml' && node.gcpPoster) {
@@ -254,43 +250,8 @@ exports.createPages = async ({graphql, actions}) => {
       query {
         allProjectsYaml {
           nodes {
-            title
-            client
-            credit
-            creditName
-            creditSlug
-            category
-            synopsis
-            partners
-            year
-            month
-            video
             slug
-            timecode
-            clips
-            poster {
-              childImageSharp {
-                gatsbyImageData(width: 905, placeholder: BLURRED)
-              }
-            }
-            galleryAspectRatio
-            gallery {
-              childImageSharp {
-                gatsbyImageData(width: 1920, placeholder: BLURRED)
-              }
-              extension
-              publicURL
-            }
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 1920, placeholder: BLURRED)
-              }
-            }
-            imageSquare {
-              childImageSharp {
-                gatsbyImageData(width: 1620, placeholder: BLURRED)
-              }
-            }
+            creditSlug
           }
         }
       }
@@ -308,8 +269,8 @@ exports.createPages = async ({graphql, actions}) => {
         path: `projects/project/${project.slug}`,
         component: projectPage,
         context: {
-          project,
-          isPage: true,
+          slug: project.slug,
+          director: project.creditSlug,
         },
       })
     })

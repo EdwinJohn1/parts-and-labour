@@ -11,6 +11,7 @@ const DirectorHeader = ({
   closeModal,
   onBioOpen,
   onBioClose,
+  linkToBio = true,
 }) => {
   const BioModal = (
     <div key={director.name} className="director-page__bio">
@@ -29,8 +30,12 @@ const DirectorHeader = ({
       tabIndex={0}
       style={{cursor: 'pointer'}}
       onClick={() => {
-        openModal && openModal(BioModal)
-        onBioOpen && onBioOpen()
+        if (linkToBio && openModal) {
+          openModal(BioModal)
+          if (onBioOpen) {
+            onBioOpen()
+          }
+        }
       }}
     >
       Bio.
@@ -38,37 +43,40 @@ const DirectorHeader = ({
   )
 
   return (
-    <>
-      <div className="director__header flex-container">
-        <div className="flex-container__left">
-          <div className="spacing spacing--small-alt no-top"></div>
-          <h1 className="heading-1--size-2">
-            <span className="name-block--outer">
-              <span className="name-block--inner">
-                {headline || director.name}
+    <div className="director__header">
+      {headline && (
+        <div className="flex-container">
+          <div className="flex-container__left">
+            <div className="spacing spacing--small-alt no-top"></div>
+            <h1 className="heading-1--size-2">
+              <span className="name-block--outer">
+                <span className="name-block--inner">{headline}</span>
               </span>
-            </span>
-          </h1>
+            </h1>
+          </div>
+          <div className="flex-container__center"></div>
+          <div className="flex-container__right"></div>
         </div>
-        <div className="flex-container__center"></div>
-        <div className="flex-container__right"></div>
-      </div>
-      <div className="spacing spacing--tiny spacing-top--small-alt line"></div>
+      )}
+      <div
+        className={`spacing spacing--tiny ${
+          headline ? 'spacing-top--small-alt' : 'spacing-top--small'
+        } line`}
+      ></div>
       <div className="spacing spacing--tiny no-top"></div>
       <div className="flex-container">
         <div className="flex-container__left">
           <h2
-            className="responsive standard normal-case heading-1--size-3"
+            className="responsive standard heading-1--size-3"
             style={{display: 'inline-block'}}
-          >
-            {subheadline || director.role}
-          </h2>
+            dangerouslySetInnerHTML={{__html: subheadline || director.role}}
+          />
         </div>
         <div className="flex-container__center"></div>
-        <div className="flex-container__right">{bioButton}</div>
+        {linkToBio && <div className="flex-container__right">{bioButton}</div>}
       </div>
       <div className="spacing spacing--medium line"></div>
-    </>
+    </div>
   )
 }
 

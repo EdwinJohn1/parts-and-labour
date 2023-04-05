@@ -1,22 +1,18 @@
 import {graphql, Link, StaticQuery, useStaticQuery} from 'gatsby'
-// import TransitionLink from 'gatsby-plugin-transition-link'
 import React from 'react'
 // import artbox from '../images/projects/artbox/billboard.jpg'
 // import gotbox from '../images/projects/got/box.png'
 import ContentBlock from '../content-block'
-// import {pageTween} from './header'
 import InViewWrapper from '../../elements/in-view-wrapper'
 import NewsItems from '../news-items'
 // import Reel from './reel'
 import Footer from '../footer'
 import ProjectList from '../project-list'
-// import Services, {ServicesCallout} from './services'
 import TransitionElement from '../../elements/transition-element'
 import placeholder from '../../images/placeholder-pixel.jpg'
 
 import SectionTitle from '../section-title'
 import LogoMarquee from '../logo-marquee'
-// import PageTitle from './page-title'
 import './index.scss'
 import CaseStudies from '../case-studies'
 
@@ -55,7 +51,14 @@ const getDefaultData = (defaultData) => {
     jm,
     magnesium,
     soma,
-    caseStudies,
+    bmwCaseStudy,
+    gotCaseStudy,
+    amazonCaseStudy,
+    buddyCaseStudy,
+    bniceCaseStudy,
+    twelveCaseStudy,
+    mlfpCaseStudy,
+    penCaseStudy,
   } = defaultData
   const directors = [sepia, meta, amos, quatrieme, devlin, eady]
   return [
@@ -320,7 +323,16 @@ const getDefaultData = (defaultData) => {
               noJustify
             />
             <CaseStudies
-              caseStudies={caseStudies.edges.map(({node}) => node)}
+              caseStudies={[
+                bmwCaseStudy,
+                gotCaseStudy,
+                amazonCaseStudy,
+                buddyCaseStudy,
+                bniceCaseStudy,
+                twelveCaseStudy,
+                mlfpCaseStudy,
+                penCaseStudy,
+              ]}
             />
           </TransitionElement>
         </>
@@ -423,12 +435,29 @@ const Projects = ({projectSections, root}) => {
       jm: newsYaml(slug: {eq: "jm"}) {
         ...news
       }
-      caseStudies: allCaseStudiesYaml {
-        edges {
-          node {
-            ...caseStudy
-          }
-        }
+      bmwCaseStudy: caseStudiesYaml(slug: {eq: "bmw"}) {
+        ...caseStudy
+      }
+      gotCaseStudy: caseStudiesYaml(slug: {eq: "got"}) {
+        ...caseStudy
+      }
+      amazonCaseStudy: caseStudiesYaml(slug: {eq: "amazon"}) {
+        ...caseStudy
+      }
+      buddyCaseStudy: caseStudiesYaml(slug: {eq: "buddy"}) {
+        ...caseStudy
+      }
+      bniceCaseStudy: caseStudiesYaml(slug: {eq: "bnice"}) {
+        ...caseStudy
+      }
+      twelveCaseStudy: caseStudiesYaml(slug: {eq: "twelve"}) {
+        ...caseStudy
+      }
+      mlfpCaseStudy: caseStudiesYaml(slug: {eq: "mlfp"}) {
+        ...caseStudy
+      }
+      penCaseStudy: caseStudiesYaml(slug: {eq: "pen"}) {
+        ...caseStudy
       }
     }
   `)
@@ -495,45 +524,6 @@ const Projects = ({projectSections, root}) => {
           </TransitionElement>
         )
       })}
-      {/* <div className="projects__section padding-lg">
-              <InViewWrapper
-                className="fullbleed-block"
-                root={root}
-                lock={true}
-                min={0}
-                max={0.75}
-                render={(visibility) => {
-                  return (
-                    <>
-                      <img
-                        src={placeholder} //artbox}
-                        style={{
-                          width: `${65 + 35 * visibility}%`,
-                          aspectRatio: `1920 / 1080`,
-                        }}
-                      />
-                      <p className="responsive title">
-                        <span className="cursive-font bold lowercase">
-                          shop
-                        </span>
-                        Box
-                      </p>
-                    </>
-                  )
-                }}
-              />
-            </div>
-
-            <div
-              className="services-section"
-              style={{marginTop: showProjects ? '-0.45em' : '-0.25em'}}
-            >
-              <div ref={(ref) => (this.lastProjectBlock = ref)} />
-              <div className="spacing spacing--tiny no-top" />
-              <div className="spacing spacing--small-alt no-top" />
-              <Services hideFooter root={root} />
-            </div>
-            */}
       <Footer />
     </div>
   )

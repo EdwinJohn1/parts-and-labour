@@ -39,10 +39,10 @@ const navItems = [
     title: 'Projects',
     url: '/projects',
   },
-  {
-    title: 'Services',
-    url: '/services',
-  },
+  // {
+  //   title: 'Services',
+  //   url: '/services',
+  // },
   {
     title: 'Case Studies',
     url: '/case-studies',
@@ -52,16 +52,16 @@ const navItems = [
     url: '/news',
   },
   {
-    title: '',
-    className: 'spacer',
-  },
-  {
     title: 'Shop',
     url: '/shop',
   },
   {
-    title: 'About Us',
-    url: '/about',
+    title: '',
+    className: 'spacer',
+  },
+  {
+    title: 'Studio',
+    url: '/studio',
   },
   {
     title: 'Contact',

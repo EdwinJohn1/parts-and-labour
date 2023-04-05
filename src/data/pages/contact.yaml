@@ -1,0 +1,75 @@
+id: contact
+title: Contact
+locations:
+  - slug: los-angeles
+    name: Los Angeles
+    abbreviation: LA
+    address:
+      street: 5012 LINCOLN AVE.
+      city: LOS ANGELES
+      state: CA
+      zip: 90042
+      country: USA
+    contacts:
+      - name: Joshua Eady
+        initials: JE
+        title: Executive Producer/Partner
+        phone:
+          - city: LA
+            number: +13106587341
+        email: josh@partsandlabour.com
+      - name: Alexis Iverson
+        initials: AI
+        title: Producer/Partner
+        phone:
+          - city: LA
+            number: +19492901906
+        email: alexis@partsandlabour.com
+  - slug: new-york
+    name: New York
+    abbreviation: NY
+    address:
+      street: 5012 LINCOLN AVE.
+      city: LOS ANGELES
+      state: CA
+      zip: 90042
+      country: USA
+    contacts:
+      - name: Joshua Eady
+        initials: JE
+        title: Executive Producer/Partner
+        phone:
+          - city: LA
+            number: +13106587341
+        email: josh@partsandlabour.com
+      - name: Alexis Iverson
+        initials: AI
+        title: Producer/Partner
+        phone:
+          - city: LA
+            number: +19492901906
+        email: alexis@partsandlabour.com
+  - slug: toronto
+    name: Toronto
+    abbreviation: TO
+    address:
+      street: 5012 LINCOLN AVE.
+      city: LOS ANGELES
+      state: CA
+      zip: 90042
+      country: USA
+    contacts:
+      - name: Joshua Eady
+        initials: JE
+        title: Executive Producer/Partner
+        phone:
+          - city: LA
+            number: +13106587341
+        email: josh@partsandlabour.com
+      - name: Alexis Iverson
+        initials: AI
+        title: Producer/Partner
+        phone:
+          - city: LA
+            number: +19492901906
+        email: alexis@partsandlabour.com

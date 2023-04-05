@@ -2,26 +2,15 @@ import React, {useRef, useEffect, useState} from 'react'
 import {isInBrowser} from '../../utils'
 import './index.scss'
 
-const ProgressiveVideo = ({
-  pause,
-  onLoaded,
-  onStart,
-  onComplete,
-  sources,
-  image,
-  fadeIn,
-  loop,
-  neverTimeout,
-}) => {
-  const videoRef = useRef(null)
-  const imageRef = useRef(null)
-  const videoContainerRef = useRef(null)
-  const [hasLoaded, setHasLoaded] = useState(false)
-
-  useEffect(() => {
-    if (isInBrowser) return
+class ProgressiveVideo extends React.Component {
+  constructor(props) {
+    super(props)
+    this.handleVideoStart = this.handleVideoStart.bind(this)
+    this.handleComplete = this.handleComplete.bind(this)
+  }
+  componentDidMount() {
     let connectionType
-    if (window.navigator && window.navigator.connection) {
+    if (window && window.navigator && window.navigator.connection) {
       connectionType = window.navigator.connection.effectiveType
     }
 
@@ -40,36 +29,55 @@ const ProgressiveVideo = ({
     //  - If the user prefers reduced motion.
     //  - Device is mobile.
     if (noPromise || userPrefersLittleMotion || speedToSlow) {
+      // console.log('promises supported:', noPromise)
+      // console.log('little motion preferred:', userPrefersLittleMotion)
+      // console.log('slow connection:', speedToSlow)
       return
     }
-    loadVideo()
 
-    return () => {
-      videoRef.current.removeEventListener('play', handleVideoStart)
-      videoRef.current.removeEventListener('ended', handleComplete)
-      if (!hasLoaded) {
-        cancelLoad()
-      }
-    }
-  }, [])
+    // this.loadVideo()
 
-  useEffect(() => {
-    if (pause) {
-      videoRef.current.pause()
-    } else {
-      videoRef.current.play()
-    }
-  }, [pause])
-
-  const loadVideo = () => {
-    setSource()
-    // Reload the video with the new sources added.
-    videoRef.current.load()
-    checkLoadTime()
+    // const imageFade = TweenMax.to(this.image, 1, {
+    //   opacity: 0.25,
+    //   repeat: -1,
+    //   yoyo: true,
+    // })
   }
 
-  const setSource = () => {
-    let children = Array.from(videoRef.current.children)
+  componentWillUnmount() {
+    this.video.removeEventListener('play', this.handleVideoStart)
+    this.video.removeEventListener('ended', this.handleComplete)
+    if (!this.hasLoaded) {
+      this.cancelLoad()
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.pause !== this.props.pause) {
+      if (nextProps.pause) {
+        this.video.pause()
+      } else {
+        this.video.play()
+      }
+    }
+  }
+
+  loadVideo() {
+    this.setSource()
+    // Reload the video with the new sources added.
+    this.video.load()
+    this.checkLoadTime()
+  }
+
+  /**
+   * Find the children of the video that are <source> tags.
+   * Set the src attribute for each <source> based on the
+   * data-src attribute.
+   *
+   * @param {DOM Object} video
+   */
+  setSource() {
+    let children = Array.from(this.video.children)
     children.forEach((child) => {
       if (
         child.tagName === 'SOURCE' &&
@@ -80,11 +88,11 @@ const ProgressiveVideo = ({
     })
   }
 
-  const checkLoadTime = () => {
+  checkLoadTime() {
     // Create a promise that resolves when the
     // video.canplaythrough event triggers.
     let videoLoad = new Promise((resolve) => {
-      videoRef.current.addEventListener('canplaythrough', () => {
+      this.video.addEventListener('canplaythrough', () => {
         resolve('can play')
       })
     })
@@ -99,32 +107,39 @@ const ProgressiveVideo = ({
 
     const promises = [videoLoad]
 
-    if (!neverTimeout) {
+    if (!this.props.neverTimeout) {
       promises.push(videoTimeout)
     }
     // Race the promises to see which one resolves first.
     Promise.race(promises).then((data) => {
-      if (!this || !videoRef.current) return
+      if (!this || !this.video) return
       if (data === 'can play') {
-        setHasLoaded(true)
-        if (onLoaded) {
-          onLoaded()
+        this.hasLoaded = true
+        if (this.props.onLoaded) {
+          this.props.onLoaded()
         }
-        videoRef.current.pause()
-        videoRef.current.addEventListener('play', handleVideoStart)
-        if (!pause) {
-          videoRef.current.play()
+        this.video.pause()
+        this.video.addEventListener('play', this.handleVideoStart)
+        if (!this.props.pause) {
+          this.video.play()
         }
 
-        videoRef.current.addEventListener('ended', handleComplete)
+        this.video.addEventListener('ended', this.handleComplete)
       } else {
-        cancelLoad()
+        this.cancelLoad()
       }
     })
   }
+  /**
+   * Cancel the video loading by removing all
+   * <source> tags and then triggering video.load().
+   *
+   * @param {DOM object} video
+   */
 
-  const cancelLoad = () => {
-    let children = Array.from(videoRef.current.children)
+  cancelLoad() {
+    // console.log('canceling video load')
+    let children = Array.from(this.video.children)
     children.forEach((child) => {
       if (
         child.tagName === 'SOURCE' &&
@@ -133,51 +148,61 @@ const ProgressiveVideo = ({
         child.parentNode.removeChild(child)
       }
     })
-    videoContainerRef.current.classList.add('cancelled-load')
-    videoRef.current.load()
+    this.videoContainer.classList.add('cancelled-load')
+
+    this.video.load()
   }
 
-  const handleVideoStart = () => {
-    if (videoContainerRef.current) {
-      videoContainerRef.current.classList.add('is-loaded')
+  handleVideoStart = () => {
+    // console.log('handle video start')
+    if (this.videoContainer) {
+      this.videoContainer.classList.add('is-loaded')
     }
-    if (onStart) {
+    if (this.props.onStart) {
       requestAnimationFrame(() => {
-        onStart()
+        this.props.onStart()
       })
     }
   }
 
-  const handleComplete = () => {
-    videoRef.current.pause()
-    videoRef.current.currentTime = videoRef.current.duration
+  handleComplete = () => {
+    this.video.pause()
+    this.video.currentTime = this.video.duration
 
-    if (onComplete) {
-      onComplete()
+    if (this.props.onComplete) {
+      this.props.onComplete()
     }
   }
 
-  return (
-    <div
-      key={JSON.stringify(sources)}
-      className={`progressive-video ${
-        fadeIn !== undefined && !fadeIn ? 'no-fade' : 'fade'
-      }`}
-      ref={videoContainerRef}
-    >
-      <video playsInline={true} muted loop={loop} ref={videoRef}>
-        {sources.map((source, index) => {
-          const {src, type} = source
-          return <source key={index} data-src={src} type={type} />
-        })}
-      </video>
-      {image && (
-        <div className="progressive-video__image">
-          <img src={image} ref={imageRef} />
-        </div>
-      )}
-    </div>
-  )
+  render() {
+    const {sources, image, onComplete, fadeIn, loop} = this.props
+    return (
+      <div
+        key={JSON.stringify(sources)}
+        className={`progressive-video ${
+          fadeIn !== undefined && !fadeIn ? 'no-fade' : 'fade'
+        }`}
+        ref={(ref) => (this.videoContainer = ref)}
+      >
+        <video
+          playsInline={true}
+          muted
+          loop={loop}
+          ref={(ref) => (this.video = ref)}
+        >
+          {sources.map((source, index) => {
+            const {src, type} = source
+            return <source key={index} data-src={src} type={type} />
+          })}
+        </video>
+        {image && (
+          <div className="progressive-video__image">
+            <img src={image} ref={(ref) => (this.image = ref)} />
+          </div>
+        )}
+      </div>
+    )
+  }
 }
 
 export default ProgressiveVideo

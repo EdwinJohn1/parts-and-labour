@@ -23,6 +23,10 @@
       display: flex;
       align-items: center;
       flex: 1;
+
+      h1 > * {
+        line-height: 0;
+      }
     }
 
     h1 {

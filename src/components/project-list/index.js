@@ -14,7 +14,6 @@ import {
 } from '../../utils'
 import ProgressiveVideo from '../../elements/progressive-video'
 import TransitionElement from '../../elements/transition-element'
-import withModal from '../../hooks/with-modal'
 import './index.scss'
 
 const columnLayouts = ['columns', 'columns--hero', 'grid']
@@ -39,9 +38,6 @@ const ProjectList = (props) => {
     thinDivider,
     slider,
     preloadNext,
-    openModal,
-    closeModal,
-    staticImages,
     spacing = 'spacing--large',
   } = props
 
@@ -106,9 +102,6 @@ const ProjectList = (props) => {
           return (
             <Project
               project={project}
-              projectDetail={data.allProjectsYaml.nodes.find(
-                ({slug}) => slug === project.slug
-              )}
               i={i}
               root={root}
               theme={theme}
@@ -127,9 +120,6 @@ const ProjectList = (props) => {
               isLast={i === projects.length - 1}
               isSlider={slider}
               thinDivider={thinDivider}
-              openModal={openModal}
-              closeModal={closeModal}
-              staticImages={staticImages}
             />
           )
         }
@@ -180,7 +170,6 @@ const ProjectList = (props) => {
 
 const Project = ({
   project,
-  projectDetail,
   layoutType,
   metaType,
   metaSubtype,
@@ -195,9 +184,6 @@ const Project = ({
   isSlider,
   thinDivider,
   root,
-  openModal,
-  closeModal,
-  staticImages,
 }) => {
   const {
     client: clientLong,
@@ -274,9 +260,7 @@ const Project = ({
 
   const splitTimeByColon = splitTextByChar(timecode, ':').join(' . ')
   const splitTime = splitTextByChar(splitTimeByColon)
-  // if (isSquareMeta && splitTime.length > 0) {
-  //   splitTime.push('MN')
-  // }
+
   const previewVideo =
     ((isVideoMeta && preview) || isRowLayout) && clips && clips[0]
   const index =
@@ -491,13 +475,6 @@ const Project = ({
     </>
   )
 
-  let ModalComponent = openModal && (
-    <ProjectPage
-      pageContext={{project: projectDetail, isPage: false}}
-      onClose={closeModal}
-    />
-  )
-
   const contentParentClassName =
     'project-list__project__section project-list__project__section--left'
 
@@ -544,15 +521,7 @@ const Project = ({
       >
         <div className="project-list__project-container__inner">
           <div className="project-list__project-container__content">
-            {ModalComponent ? (
-              <ProjectWithModal
-                className={projectClassName}
-                openModal={openModal}
-                ModalComponent={ModalComponent}
-              >
-                <ProjectContent />
-              </ProjectWithModal>
-            ) : !isImageMeta ? (
+            {!isImageMeta ? (
               <ProjectLink className={projectClassName} slug={slug}>
                 <ProjectContent />
               </ProjectLink>
@@ -585,16 +554,4 @@ const ProjectLink = ({className, slug, children}) => {
   )
 }
 
-const ProjectWithModal = ({children, className, openModal, ModalComponent}) => {
-  return (
-    <div
-      className={`${className} 'has-modal'`}
-      onClick={() => openModal(ModalComponent)}
-    >
-      {children}
-    </div>
-  )
-}
-
 export default ProjectList
-// export default withModal(ProjectList, {modalRoot: '#project-info'})

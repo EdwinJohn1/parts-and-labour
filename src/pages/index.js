@@ -49,10 +49,8 @@ const IndexPage = () => {
       <div className="container splash-section__container">
         <div className="splash-section">
           <div className="home-splash">
-            <div className="pal-logo-animation">
-              <PalLogoAnim />
-            </div>
-            <div>
+            <PalLogoAnim />
+            <div className="mission-statement">
               <div className="spacing spacing--medium line"></div>
               <MissionStatement />
               <div className="spacing spacing--medium line"></div>
@@ -62,10 +60,7 @@ const IndexPage = () => {
       </div>
       <div className="container list-section">
         <div className="list-section__projects">
-          <Projects
-            showProjects={true}
-            onRemoveProjects={() => this.setState({projectsRemoved: true})}
-          />
+          <Projects />
         </div>
       </div>
     </ContentPage>

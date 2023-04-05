@@ -1,0 +1,31 @@
+slug: twelve
+title: >-
+  12 (Twelve)
+sections:
+  - title: Brand Identity
+    date: 2020-2021
+    location: LA, CA.
+    gcpImage: projects/got/poster.jpg
+    gcpGallery:
+      - projects/got/gallery/1.jpg
+      - projects/got/gallery/2.jpg
+      - projects/got/gallery/3.jpg
+      - projects/got/gallery/4.jpg
+      - projects/got/gallery/5.jpg
+      - projects/got/gallery/6.jpg
+  - title: Film Prod.
+    date: 2020-2021
+    location: LA, CA.
+    gcpImage: projects/got/poster.jpg
+  - title: Digital Design
+    date: 2020-2021
+    location: LA, CA.
+    gcpImage: projects/got/poster.jpg
+  - title: 360/VR
+    date: 2020-2021
+    location: LA, CA.
+    gcpImage: projects/got/poster.jpg
+  - title: VFX & Motion
+    date: 2020-2021
+    location: LA, CA.
+    gcpImage: projects/got/poster.jpg

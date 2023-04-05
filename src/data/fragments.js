@@ -135,3 +135,11 @@ export const caseStudyFragment = graphql`
     }
   }
 `
+
+export const pageFragment = graphql`
+  fragment page on PagesYaml {
+    id
+    title
+    summary
+  }
+`
