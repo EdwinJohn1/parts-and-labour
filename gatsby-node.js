@@ -270,7 +270,7 @@ exports.createPages = async ({graphql, actions}) => {
         component: projectPage,
         context: {
           slug: project.slug,
-          director: project.creditSlug,
+          director: project.creditSlug || '',
         },
       })
     })
