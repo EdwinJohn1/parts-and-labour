@@ -6,7 +6,6 @@ import SEO from '../elements/seo'
 import ContentPage from '../templates/content-page'
 import './index/index.scss'
 import {isInBrowser} from '../utils'
-import Footer from '../components/footer'
 
 const IndexPage = () => {
   useState(() => {
@@ -47,24 +46,6 @@ const IndexPage = () => {
         ]}
         description="A multi-platform content company based in LA NYC and Toronto"
       />
-      {/* <div className="container splash-section__container">
-        <div className="splash-section">
-          <div className="home-splash">
-            <PalLogoAnim />
-            <div className="mission-statement">
-              <div className="spacing spacing--medium line"></div>
-              <MissionStatement />
-              <div className="spacing spacing--medium line"></div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-      {/* <div className="container list-section">
-        <div className="list-section__projects">
-          <Projects />
-        </div>
-      </div> */}
-      {/* TEMP Coming Soon Content */}
       <div className="container splash-section__container">
         <div className="splash-section">
           <div className="home-splash">
@@ -77,7 +58,11 @@ const IndexPage = () => {
           </div>
         </div>
       </div>
-      <Footer left={<p className="responsive">2023, Coming Soon</p>} />
+      <div className="container list-section">
+        <div className="list-section__projects">
+          <Projects />
+        </div>
+      </div>
     </ContentPage>
   )
 }
