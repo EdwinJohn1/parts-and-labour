@@ -1,0 +1,79 @@
+@import './../../styles/variables';
+@import './../../styles/mixins';
+@import './../../styles/animations';
+@import './../../styles/typography';
+
+.shop-page {
+    .content-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .shop {
+        &__title {
+            .content-block__heading__title h1 {
+                font-family: 'HelveticaNeue', sans-serif;
+            }
+        }
+
+        &__category {
+            .content-block__heading__title h1 {
+                padding-left: 4em;
+            }
+            &--all {
+                cursor: pointer
+            }
+        }
+        &__products {
+            p {
+                @extend .display-font;
+                @extend .heading-1--size-2;
+                text-align: right;
+            }
+        }
+    }
+    .site-footer {
+        flex: 1;
+    }
+}
+
+// outside of .shop-page because this exists in a modal
+
+/*
+.shop__product {
+    padding: 16px;
+    width: 100vw;
+    height: 100vh;
+    background: $royalBlue;
+    .title-back-button__title {
+        margin-bottom: 1em;
+    }
+    &__variant {
+        display: flex;
+        &__img {
+            width: 32%;
+            img {
+                width: 100%;
+                padding-top: 77%;
+                object-fit: cover;
+                opacity: 0.1;
+                mix-blend-mode: color-burn;
+            }
+        }
+        &__meta {
+            margin-left: 10%;
+            flex: 1;
+        }
+        p.responsive {
+            color: black;
+            margin: 0;
+            max-width: 16em;
+        }
+        p.display {
+            @extend .display-font;
+            @extend .heading-1--size-2;
+            text-align: right;
+            color: black;
+        }
+    }
+}
+*/

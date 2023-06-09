@@ -136,6 +136,22 @@ export const caseStudyFragment = graphql`
   }
 `
 
+export const shopFragment = graphql`
+  fragment shop on ShopYaml {
+    title
+    products {
+      name
+      variants {
+        image {
+          ...shopImage
+        }
+        type
+        description
+      }
+    }
+  }
+`
+
 export const pageFragment = graphql`
   fragment page on PagesYaml {
     id

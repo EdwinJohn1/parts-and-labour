@@ -1,0 +1,23 @@
+title: Objects
+products:
+  - name: Candle
+    variants:
+      - type: 'cream'
+        image: ../images/placeholder-pixel.jpg
+        description: 'P&L AW/22 (Staff) T-Shirt Jhasami Japanese porcelain designed and manufactured in los angeles, ca.'
+  - name: Mug
+    variants:
+      - type: 'cream'
+        image: ../images/placeholder-pixel.jpg
+        description: 'P&L AW/22 (Staff) T-Shirt Jhasami Japanese porcelain designed and manufactured in los angeles, ca.'
+  - name: Note-Pad
+    variants:
+      - type: 'cream'
+        image: ../images/placeholder-pixel.jpg
+        description: 'P&L AW/22 (Staff) T-Shirt Jhasami Japanese porcelain designed and manufactured in los angeles, ca.'
+
+  - name: Sticker
+    variants:
+      - type: 'cream'
+        image: ../images/placeholder-pixel.jpg
+        description: 'P&L AW/22 (Staff) T-Shirt Jhasami Japanese porcelain designed and manufactured in los angeles, ca.'

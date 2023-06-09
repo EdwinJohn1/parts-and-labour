@@ -1,0 +1,12 @@
+title: Apparel
+products:
+  - name: T-Shirt
+    variants:
+      - type: 'cream'
+        image: ../../images/placeholder-pixel.jpg
+        description: 'P&L AW/22 (Staff) T-Shirt Jhasami Japanese porcelain designed and manufactured in los angeles, ca.'
+  - name: Tote Bag
+    variants:
+      - type: 'cream'
+        image: ../../images/placeholder-pixel.jpg
+        description: 'P&L AW/22 (Staff) T-Shirt Jhasami Japanese porcelain designed and manufactured in los angeles, ca.'
