@@ -2,8 +2,6 @@
 
 The <b>Parts & Labour</b> website is built with the Gatsby.js frontend framework and is deployed via Netlify. It sources static images from a GCP bucket and video files from Akamai.
 
-Netlify is configured to deploy production builds from the `master` branch.
-
 ## 🚀 Get started
 
 This project uses Node v18.12.1. You can automatically set your local Node version using NVM by executing `nvm use` in your terminal.
@@ -25,6 +23,23 @@ This project uses Node v18.12.1. You can automatically set your local Node versi
     ```
 
     The site is configured to run at at http://localhost:8000 unless otherwise specified.
+
+## Deployments
+
+Deploying the project is as simple as committing your code to Github. Netlify is configured to deploy production builds from the `master` branch here:
+
+```
+https://lighthearted-alfajores-12bc44.netlify.app
+https://partsandlabour.com
+```
+
+Changes committed to the `develop` branch can be previewed here:
+
+`https://develop--lighthearted-alfajores-12bc44.netlify.app/`
+
+You can also create a branch preview by creating a Pull Request for your branch against the `master` branch. [More info here](https://docs.netlify.com/site-deploys/deploy-previews/).
+
+It is highly recommended that nothing is merged into the master branch until it's been previewed, QA'd and vetted on a preview branch.
 
 ## Data
 
