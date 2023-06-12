@@ -2,7 +2,7 @@
 
 The <b>Parts & Labour</b> website is built with the Gatsby.js frontend framework and is deployed via Netlify. It sources static images from a GCP bucket and video files from Akamai.
 
-Netlify is configured to deploy production builds from the `master` branch.
+Netlify is configured to deploy production builds from the `main` branch.
 
 ## 🚀 Get started
 
