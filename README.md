@@ -1,49 +1,37 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal Starter
-</h1>
+## Introduction
 
-## 🚀 Quick start
+The <b>Parts & Labour</b> website is built with the Gatsby.js frontend framework and is deployed via Netlify. It sources static images from a GCP bucket and video files from Akamai.
 
-1.  **Create a Gatsby site.**
+Netlify is configured to deploy production builds from the `master` branch.
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+## 🚀 Get started
+
+This project uses Node v18.12.1. You can automatically set your local Node version using NVM by executing `nvm use` in your terminal.
+
+1.  **Install dependencies**
 
     ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
+    npm install
     ```
 
-2.  **Start developing.**
+2.  **Configure local .env file**
 
-    Navigate into your new site’s directory and start it up.
+    The site requires a .env file populated with specific environment variables in order to source the static images from GCP. Copy/pasge the `.env.sample` file (rename to `.env`) and contact an administrator to fill in the proper values. **Do not fill out and commit the values in .env.sample**.
+
+3.  **Run the project locally**
 
     ```shell
-    cd my-gatsby-site/
-    npm run develop
+    npm run start
     ```
 
-3.  **Open the code and start customizing!**
+    The site is configured to run at at http://localhost:8000 unless otherwise specified.
 
-    Your site is now running at http://localhost:8000!
+## Data
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+All app data is configured in the `src/data` directory and queried using Gatsby's Graphql API.
 
-4.  **Learn more**
+## Learn More
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Netlify)
-
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
-
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal)
+- [Gatsby Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+- [NVM](https://github.com/nvm-sh/nvm)
+- [Netlify](https://docs.netlify.com/)
