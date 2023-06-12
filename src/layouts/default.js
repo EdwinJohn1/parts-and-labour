@@ -6,7 +6,8 @@ import '../styles/app.scss'
 const DefaultLayout = ({children}) => {
   return (
     <HeaderProvider>
-      <HeaderComponent />
+      {/* TEMP Placeholder Content */}
+      {/* <HeaderComponent /> */}
       {children}
     </HeaderProvider>
   )

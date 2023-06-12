@@ -35,5 +35,25 @@
     display: block;
 
   }
+}
 
+
+  // TEMP Placeholder Content
+
+  .content-page .content-container {
+    padding-top: 16px;
+  }
+.home {
+  .pal-logo-anim {
+    padding: 0;
+  }
+  .site-footer {
+    padding-top: 0;
+
+    &__content {
+
+    }
+    .company-info {
+    margin-top: 0;
+  }}
 }
