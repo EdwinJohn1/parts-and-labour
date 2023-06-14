@@ -12,8 +12,8 @@ const bucket = process.env.GCP_BUCKET
 const storage = new Storage({
   projectId,
   credentials: {
-    client_email: process.env.GCP_CLIENT_EMAIL,
-    private_key: process.env.GCP_PRIVATE_KEY.split('\\n').join('\n'),
+//     client_email: process.env.GCP_CLIENT_EMAIL,
+//     private_key: process.env.GCP_PRIVATE_KEY.split('\\n').join('\n'),
   },
 })
 
