@@ -60,59 +60,9 @@ const ContactPage = () => {
       {/*<h1 className="headline">Let’s do something amazing</h1>*/}
 
       <div className="contact-container">
-        <div className="contact-container__section abbreviations">
-          {locations.map(({abbreviation}) => {
-            return (
-              <div className={`abbreviation ${abbreviation.toLowerCase()}`}>
-                {abbreviation}
-              </div>
-            )
-          })}
-        </div>
-        <div class="contact-locations">
-          {locations.map(({name, abbreviation, address, contacts}) => {
-            return (
-              <div className="contact-container__section contact-location">
-                <div className="contact-location__container address">
-                  <p className="responsive bold location-name">
-                    {name} <span className="abbreviation">{abbreviation}</span>
-                  </p>
-                  <p className="responsive">
-                    {address.street} {address.city}
-                  </p>
-                  <p className="responsive">
-                    {address.state} {address.zip}-{address.country}
-                  </p>
-                </div>
-                {contacts.map((contact, index) => {
-                  return (
-                    <div
-                      className="contact-location__container contact"
-                      key={index}
-                    >
-                      <p className="responsive contact__name body-font-bold">
-                        {contact.name}
-                      </p>
-                      <p className="responsive contact__title">
-                        {contact.title}
-                      </p>
-                      {contact.subtitle && (
-                        <p className="responsive contact__subtitle">
-                          {contact.subtitle}
-                        </p>
-                      )}
-                      {phoneNumber(contact.phone)}
-                      {contact.email && (
-                        <a href={`mailto:${contact.email}`}>{contact.email}</a>
-                      )}
-                      {contact.address && <p>{contact.address}</p>}
-                    </div>
-                  )
-                })}
-              </div>
-            )
-          })}
-        </div>
+        <h2>ArtWork</h2>  
+        <img src="/images/1.png" />
+        <img src="/images/2.png" />
       </div>
       <Footer />
     </ContentPage>
