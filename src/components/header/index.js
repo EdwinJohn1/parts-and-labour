@@ -1,33 +1,33 @@
 import {Link} from 'gatsby'
 import React, {useContext, useEffect, useState} from 'react'
 import PalLogo from '../../elements/pl-logo'
-
+import {TweenMax} from 'gsap'
 import {HeaderContext, HEADER_STATES} from '../../context/header-context'
 import './index.scss'
 import {isSmallScreen} from '../../utils'
 import Button from '../button'
 
 // TODO: page transitions
-// export const pageTween = (target, exiting = false) => {
-//   // document.querySelector('.content')
+export const pageTween = (target, exiting = false) => {
+  // document.querySelector('.content')
 
-//   TweenMax.set(target, {y: exiting ? 0 : '100%'})
-//   TweenMax.to(target, 0.5, {
-//     y: '0%',
-//     // delay: exiting ? 0 : 0.5,
-//     onComplete: () => {
-//       document.body.style.overflow = 'initial'
-//       requestAnimationFrame(() => {
-//         const page = document.querySelector('.page', target)
-//         if (page) {
-//           // page.style.opacity = 0
-//           page.style.opacity = 1
-//         }
-//       })
-//     },
-//     ease: Expo.easeOut,
-//   })
-// }
+  TweenMax.set(target, {y: exiting ? 0 : '100%'})
+  TweenMax.to(target, 0.5, {
+    y: '0%',
+    // delay: exiting ? 0 : 0.5,
+    onComplete: () => {
+      document.body.style.overflow = 'initial'
+      requestAnimationFrame(() => {
+        const page = document.querySelector('.page', target)
+        if (page) {
+          // page.style.opacity = 0
+          page.style.opacity = 1
+        }
+      })
+    },
+    ease: 'Expo.easeOut',
+  })
+}
 
 const navItems = [
   {
@@ -66,7 +66,7 @@ const navItems = [
   {
     title: 'Contact',
     url: '/contact',
-  },
+  }
 ]
 
 let transitionTimeout

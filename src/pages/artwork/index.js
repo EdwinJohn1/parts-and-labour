@@ -1,51 +1,36 @@
+import {graphql, useStaticQuery} from 'gatsby'
 import React from 'react'
-import SEO from '../../elements/seo'
+import ContentBlock from '../../components/content-block'
 import Footer from '../../components/footer'
+import SEO from '../../elements/seo'
 import ContentPage from '../../templates/content-page'
-import {isSmallScreen} from '../../utils'
-import {useStaticQuery, graphql} from 'gatsby'
+import {lastTwoYearDigits} from '../../utils'
 import './index.scss'
 
-const ContactPage = () => {
-  const {content} = useStaticQuery(graphql`
+const ShopPage = () => {
+  const {shops} = useStaticQuery(graphql`
     query {
-      content: pagesYaml(yamlId: {eq: "contact"}) {
-        locations {
-          slug
-          name
-          abbreviation
-          address {
-            street
-            city
-            state
-            zip
-            country
-          }
-          contacts {
-            name
-            title
-            initials
-            phone {
-              city
-              number
-            }
-            email
+      shops: allShopYaml {
+        edges {
+          node {
+            ...shop
           }
         }
       }
     }
   `)
-  const {locations} = content
+  const shopItems = shops?.edges.map(({node}) => node)
+  const allShopItems = [
+    ...new Set(shopItems.map(({products}) => products).flat()),
+  ]
   return (
     <ContentPage
-      shouldShowLogo
-      logoColor="black"
-      menuColor={isSmallScreen() ? 'white' : 'black'}
-      headerBackgroundColor="lavender"
-      className="contact-page"
+      className="shop-page"
+      logoColor={'black'}
+      headerBackgroundColor={'royalBlue'}
     >
       <SEO
-        title="Parts & Labour: Contact"
+        title="Parts & Labour: Shop"
         description="A multi-platform content company based in LA NYC and Toronto"
         keywords={[
           `Parts`,
@@ -57,39 +42,53 @@ const ContactPage = () => {
           `Toronto`,
         ]}
       />
-      {/*<h1 className="headline">Let’s do something amazing</h1>*/}
 
-      <div className="contact-container">
-        <h2>ArtWork</h2>  
-        <img src="/images/1.png" />
-        <img src="/images/2.png" />
-      </div>
+      <ContentBlock
+        altTitleFont
+        title={`AW/${lastTwoYearDigits()} Shop`}
+        smallSpacing
+      />
+      <div className="spacing line small spacing--medium width--fullscreen" />
+      <img src='/image/image_1.png'/>
       <Footer />
     </ContentPage>
   )
 }
 
-export const phoneNumber = (phoneObject) => {
-  return phoneObject.map((phone, phoneIndex) => {
-    const phoneNumber = String(phone.number)
-    const isIntl = phoneNumber.charAt(0) === '1'
-    let phoneNumberToUse = isIntl
-      ? phoneNumber.substr(1, phoneNumber.length - 1)
-      : phoneNumber
-    if (isIntl) {
-    }
-    const formattedNumber = `${
-      isIntl ? '+1 ' : ''
-    }(${phoneNumberToUse.substring(0, 3)}) ${phoneNumberToUse.substring(
-      3,
-      6
-    )} ${phoneNumberToUse.substring(6, 10)}`
-    return (
-      <a key={phoneIndex} href={`tel:${phoneNumber}`}>
-        {formattedNumber}
-      </a>
-    )
-  })
+const ShopItems = ({title, products}) => {
+  return (
+    <ContentBlock
+      className="shop__category"
+      // expanded={this.state.allOpen}
+      accordion
+      title={title}
+      smallSpacing
+    >
+      <div className="shop__products">
+        {products.map((product) => {
+          // const Modal = (
+          //   <ShopItem
+          //     {...product}
+          //     closeModal={this.props.closeModal}
+          //   />
+          // )
+          return (
+            <p
+              className="display"
+              // onClick={() => {
+              //   this.props.openModal(Modal)
+              // }}
+              style={{cursor: 'pointer'}}
+              tabIndex={0}
+            >
+              {product.name}
+            </p>
+          )
+        })}
+        <div className="spacing spacing--medium line"></div>
+      </div>
+    </ContentBlock>
+  )
 }
 
-export default ContactPage
+export default ShopPage

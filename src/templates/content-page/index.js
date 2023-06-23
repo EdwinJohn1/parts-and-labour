@@ -42,14 +42,16 @@ const ContentPage = ({
     }
   }, [])
 
-  const showHeader = headerVisible !== undefined ? headerVisible : true
+  // const showHeader = headerVisible !== undefined ? headerVisible : true
+  const showHeader = true
 
   return (
     <Page
       headerBackgroundColor={headerBackgroundColor}
       logoColor={logoColor}
       className={`content-page ${className ? className : ''} ${
-        showHeader ? null : 'content-page--no-header'
+        showHeader
+        // showHeader ? null : 'content-page--no-header'
       }`}
       style={style}
     >
