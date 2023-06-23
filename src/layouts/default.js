@@ -7,7 +7,7 @@ const DefaultLayout = ({children}) => {
   return (
     <HeaderProvider>
       {/* TEMP Placeholder Content */}
-      {/* <HeaderComponent /> */}
+      <HeaderComponent />
       {children}
     </HeaderProvider>
   )

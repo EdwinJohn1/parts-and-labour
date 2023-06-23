@@ -94,4 +94,4 @@ const ShopItems = ({title, products}) => {
   )
 }
 
-export default ShopPage
+// export default ShopPage
