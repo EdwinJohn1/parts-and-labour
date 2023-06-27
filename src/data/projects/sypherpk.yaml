@@ -1,0 +1,23 @@
+client: 'Fortnite'
+title: 'Sypherpk'
+slug: sypherpk
+credit: VFX
+creditName: META
+creditSlug: meta-productions
+thumbnail: null
+video: http://thelodgevideos.akamaized.net/podium/MP_Direct Energy.mp4
+gcpGallery:
+  - projects/moms/gallery/1.jpg
+  - projects/moms/gallery/2.jpg
+  - projects/moms/gallery/3.jpg
+  - projects/moms/gallery/4.jpg
+  - projects/moms/gallery/5.jpg
+  - projects/moms/gallery/6.jpg
+clips:
+  - http://thelodgevideos.akamaized.net/podium/pal-clips/projects/META_DirectEnergy.mp4
+gcpImage: projects/moms/hero.jpg
+gcpImageSquare: projects/moms/square.jpg
+synopsis: >-
+  
+timecode: 00:01:00
+year: 2022
