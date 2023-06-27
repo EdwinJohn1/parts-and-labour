@@ -453,4 +453,16 @@ $grid-gutter: calc((0.14 * ((100vw - 32px) * 0.0475)) * 0.5);
       background-color: $black;
     }
   }
+  .d-flex{
+    display:flex !important;
+    justify-content: space-between !important;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  .credit{
+    padding-left: 20px;
+    // font-size: 15px;
+    font-weight: normal;
+  }
 }

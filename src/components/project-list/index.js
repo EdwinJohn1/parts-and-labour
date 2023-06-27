@@ -219,8 +219,7 @@ const Project = ({
   const isVideoMeta = isRowLayout || metaType === 'video'
   const isBrandingSubtype = metaSubtype === 'branding'
 
-  const imageToUse = isImageMeta
-    ? image
+  const imageToUse = isImageMeta ? image
     : isSquareMeta
     ? imageSquare || image
     : isColumnLayout
@@ -336,14 +335,16 @@ const Project = ({
           )}
           {isSquareMeta && (
             <>
-              <div className="project-list__project__meta__left">
+              {/* <div className="project-list__project__meta__left">
                 <p className="responsive cursive-font bold">
                   {projectSequenceNumber}
                 </p>
-              </div>
-              <div className="project-list__project__meta__right">
-                <p className="span responsive">
-                  {convertSplitIntoSpans(
+              </div> */}
+              <div className="project-list__project__meta__right d-flex">
+                <p className="span responsive bold">{titleToUse} 
+                <span className='credit'>     {credit} by {creditName} </span> 
+                {/* String(year) */}
+                  {/* {convertSplitIntoSpans(
                     [titleToUse, '(', String(year), ')'],
                     false,
                     false,
@@ -353,9 +354,10 @@ const Project = ({
                         class: 'bold',
                       })),
                     ]
-                  )}
+                   )} */}
                 </p>
-                <p className="span responsive">{creditShort}</p>
+                <p className="span responsive">({year})</p>
+                {/* <p className="span responsive">{creditShort}</p> */}
               </div>
             </>
           )}
@@ -378,14 +380,13 @@ const Project = ({
             loop={true}
           />
         ) : isImageMeta ? (
-          <img
+          <img className="asd"
             srcSet={gatsbyImage.images.sources[0].srcSet}
             src={gatsbyImage.placeholder.fallback}
           />
         ) : (
-          // <GatsbyImage className="image" image={gatsbyImage} style={{}} />
-          // <GatsbyImage className="image" image={gatsbyImage} />
-          <img />
+          <GatsbyImage className="image" image={gatsbyImage} />
+          // <img />
         )}
         {/* <VideoClips videos={clips} isActive={true} /> */}
         {isVideoMeta && (
